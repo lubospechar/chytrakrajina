@@ -1,5 +1,8 @@
 name: Django DEV
 
+env:
+  SECRET_KEY: "ci-only-${{ github.run_id }}-${{ github.sha }}"
+
 on:
   push:
     branches: [ "dev" ]
