@@ -16,9 +16,10 @@ jobs:
       DEBUG: "True"
       SECRET_KEY: "ci-only-${{ github.run_id }}-${{ github.sha }}"
 
+
     strategy:
       matrix:
-        python-version: ["3.12"]
+        python-version: ["3.12", "3.13"]
 
     steps:
       - name: Checkout repository
