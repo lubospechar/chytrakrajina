@@ -8,14 +8,11 @@ https://docs.djangoproject.com/en/6.0/howto/deployment/wsgi/
 """
 
 import os
-
-
-from configurations.wsgi import get_wsgi_application
 from decouple import config
-
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "chytrakrajina.settings")
 os.environ.setdefault("DJANGO_CONFIGURATION", config("DJANGO_CONFIGURATION", default="Dev"))
 
+from configurations.wsgi import get_wsgi_application
 
 application = get_wsgi_application()
