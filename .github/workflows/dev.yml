@@ -15,6 +15,9 @@ jobs:
     env:
       DEBUG: "True"
       SECRET_KEY: "ci-only-${{ github.run_id }}-${{ github.sha }}"
+      DB_NAME: "github_actions"
+      DB_USER: "github_actions"
+      DB_PASSWORD: "github_actions"
 
 
     strategy:
