@@ -60,4 +60,4 @@ jobs:
     - name: Deploy via SSH
       run: |
         ssh -vvv dev-chytra-krajina@37.205.13.147 "echo ok"
-        ssh dev-chytra-krajina@@37.205.13.147 "/home/dev-chytra-krajina/bin/deploy.sh"
+        ssh dev-chytra-krajina@37.205.13.147 "/home/dev-chytra-krajina/bin/deploy.sh"
