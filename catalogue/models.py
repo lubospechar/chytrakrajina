@@ -15,6 +15,13 @@ class MeasureGroup(models.Model):
         verbose_name=_("Measure group icon")
     )
 
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = _("Measure group")
+        verbose_name_plural = _("Measure groups")
+
 
 class Measure(models.Model):
     # base information
@@ -39,3 +46,11 @@ class Measure(models.Model):
     biodiversity = ScoreField(verbose_name=_("Biodiversity"))
     air = ScoreField(verbose_name=_("Air"))
     aesthetics = ScoreField(verbose_name=_("Aesthetics"))
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = _("Measure")
+        verbose_name_plural = _("Measures")
+

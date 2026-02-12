@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-12 11:38+0100\n"
+"POT-Creation-Date: 2026-02-12 12:02+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,17 +27,19 @@ msgstr "Základní informace"
 msgid "Scores"
 msgstr "Skore"
 
+#: catalogue/apps.py:7
+msgid "Catalogue"
+msgstr "Katalog"
+
 #: catalogue/fields.py:7
 msgid "Score from 0 to 5"
 msgstr "Skore od 0 do 5"
 
 #: catalogue/fields.py:12
-#, python-format
 msgid "Score must be at least 0."
 msgstr "Skore musí být minimálně 0"
 
 #: catalogue/fields.py:16
-#, python-format
 msgid "Score must be at most 5."
 msgstr "Skore musí být maximálně 5"
 
@@ -53,42 +55,54 @@ msgstr "Popis skupiny opatření"
 msgid "Measure group icon"
 msgstr "Ikona skupiny opatření"
 
-#: catalogue/models.py:23
-msgid "Measure name"
-msgstr "Název opatření"
-
-#: catalogue/models.py:28
+#: catalogue/models.py:22 catalogue/models.py:35
 msgid "Measure group"
 msgstr "Skupina opatření"
 
-#: catalogue/models.py:33
+#: catalogue/models.py:23
+msgid "Measure groups"
+msgstr "Skupiny opatření"
+
+#: catalogue/models.py:30
+msgid "Measure name"
+msgstr "Název opatření"
+
+#: catalogue/models.py:40
 msgid "Measure short description"
 msgstr "Krátky popis opatření"
 
-#: catalogue/models.py:37
+#: catalogue/models.py:44
 msgid "Temperature"
 msgstr "Teplota"
 
-#: catalogue/models.py:38
+#: catalogue/models.py:45
 msgid "Water"
 msgstr "Voda"
 
-#: catalogue/models.py:39
+#: catalogue/models.py:46
 msgid "Biodiversity"
 msgstr "Biodiverzita"
 
-#: catalogue/models.py:40
+#: catalogue/models.py:47
 msgid "Air"
 msgstr "Vzduch"
 
-#: catalogue/models.py:41
+#: catalogue/models.py:48
 msgid "Aesthetics"
 msgstr "Estetika"
 
-#: chytrakrajina/settings.py:91
+#: catalogue/models.py:54
+msgid "Measure"
+msgstr "Opatření"
+
+#: catalogue/models.py:55
+msgid "Measures"
+msgstr "Opatření"
+
+#: chytrakrajina/settings.py:93
 msgid "Czech"
 msgstr "Čeština"
 
-#: chytrakrajina/settings.py:92
+#: chytrakrajina/settings.py:94
 msgid "English"
 msgstr "Angličtina"

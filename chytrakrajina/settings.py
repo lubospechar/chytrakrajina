@@ -47,6 +47,8 @@ class Base(Configuration):
         }
     }
 
+    LOCALE_PATHS = [BASE_DIR / "locale"]
+
     ROOT_URLCONF = "chytrakrajina.urls"
 
     TEMPLATES = [
@@ -82,7 +84,7 @@ class Base(Configuration):
         },
     ]
 
-    LANGUAGE_CODE = "en"
+    LANGUAGE_CODE = "cs"
     TIME_ZONE = "Europe/Prague"
     USE_I18N = True
     USE_TZ = True
