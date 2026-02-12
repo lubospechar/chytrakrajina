@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-12 11:10+0100\n"
+"POT-Creation-Date: 2026-02-12 11:38+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,29 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n "
 "<= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+
+#: catalogue/admin.py:19
+msgid "Base information"
+msgstr "Základní informace"
+
+#: catalogue/admin.py:20
+msgid "Scores"
+msgstr "Skore"
+
+#: catalogue/fields.py:7
+msgid "Score from 0 to 5"
+msgstr "Skore od 0 do 5"
+
+#: catalogue/fields.py:12
+#, python-format
+msgid "Score must be at least 0."
+msgstr "Skore musí být minimálně 0"
+
+#: catalogue/fields.py:16
+#, python-format
+msgid "Score must be at most 5."
+msgstr "Skore musí být maximálně 5"
+
 #: catalogue/models.py:8
 msgid "Measure group name"
 msgstr "Název skupiny opetření"
@@ -42,10 +65,30 @@ msgstr "Skupina opatření"
 msgid "Measure short description"
 msgstr "Krátky popis opatření"
 
-#: chytrakrajina/settings.py:90
+#: catalogue/models.py:37
+msgid "Temperature"
+msgstr "Teplota"
+
+#: catalogue/models.py:38
+msgid "Water"
+msgstr "Voda"
+
+#: catalogue/models.py:39
+msgid "Biodiversity"
+msgstr "Biodiverzita"
+
+#: catalogue/models.py:40
+msgid "Air"
+msgstr "Vzduch"
+
+#: catalogue/models.py:41
+msgid "Aesthetics"
+msgstr "Estetika"
+
+#: chytrakrajina/settings.py:91
 msgid "Czech"
 msgstr "Čeština"
 
-#: chytrakrajina/settings.py:91
+#: chytrakrajina/settings.py:92
 msgid "English"
 msgstr "Angličtina"

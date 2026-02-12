@@ -9,10 +9,10 @@ class ScoreField(models.PositiveSmallIntegerField):
     default_validators = [
         validators.MinValueValidator(
             0,
-            message=_("Score must be at least %(limit_value)s."),
+            message=_("Score must be at least 0."),
         ),
         validators.MaxValueValidator(
             5,
-            message=_("Score must be at most %(limit_value)s."),
+            message=_("Score must be at most 5."),
         ),
     ]
