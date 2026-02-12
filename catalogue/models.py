@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-
+from catalogue.fields import ScoreField
 
 class MeasureGroup(models.Model):
     name = models.CharField(
@@ -32,3 +32,10 @@ class Measure(models.Model):
         max_length=255,
         verbose_name=_("Measure short description")
     )
+
+    # score
+    temperature = ScoreField(verbose_name=_("Temperature"))
+    water = ScoreField(verbose_name=_("Water"))
+    biodiversity = ScoreField(verbose_name=_("Biodiversity"))
+    air = ScoreField(verbose_name=_("Air"))
+    aesthetics = ScoreField(verbose_name=_("Aesthetics"))
