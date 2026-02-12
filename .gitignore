@@ -81,3 +81,6 @@ out/
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+
+# Django translations (compiled)
+**/locale/**/LC_MESSAGES/*.mo
