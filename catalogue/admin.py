@@ -19,4 +19,3 @@ class MeasureAdmin(admin.ModelAdmin):
         (_("Base information"), {"fields": ("name", "short_description", "group")}),
         (_("Scores"), {"fields": ("aesthetics", "air", "biodiversity", "temperature", "water")}),
     )
-
