@@ -4,7 +4,12 @@ from catalogue.models import (
     MeasureGroup,
     Measure,
     LocationType,
+    MainAdvantage,
 )
+
+@admin.register(MainAdvantage)
+class MainAdvantageAdmin(admin.ModelAdmin):
+    list_display = ("advantage_cs", "advantage_en")
 
 @admin.register(LocationType)
 class LocationTypeAdmin(admin.ModelAdmin):
