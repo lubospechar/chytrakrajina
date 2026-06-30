@@ -167,7 +167,7 @@ class Measure(models.Model):
     law = models.ManyToManyField(Law)
 
     def __str__(self):
-        return self.name
+        return self.name_cs
 
     class Meta:
         verbose_name = _("Measure")
