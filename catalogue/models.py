@@ -16,11 +16,11 @@ class MeasureGroup(models.Model):
     )
 
     description_cs = models.TextField(
-        verbose_name=_("Measure group description"),
+        verbose_name=_("Measure group description (cs)"),
     )
 
     description_en = models.TextField(
-        verbose_name=_("Measure group description"),
+        verbose_name=_("Measure group description (en)"),
         null=True, blank=True,
     )
 

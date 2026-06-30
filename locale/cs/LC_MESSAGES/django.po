@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-12 12:02+0100\n"
+"POT-Creation-Date: 2026-06-30 13:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,59 +43,71 @@ msgstr "Skore musí být minimálně 0"
 msgid "Score must be at most 5."
 msgstr "Skore musí být maximálně 5"
 
-#: catalogue/models.py:8
-msgid "Measure group name"
-msgstr "Název skupiny opetření"
+#: catalogue/models.py:10
+#| msgid "Measure group name"
+msgid "Measure group name (cs)"
+msgstr "Název skupiny opetření (cs)"
 
-#: catalogue/models.py:11
-msgid "Measure group description"
-msgstr "Popis skupiny opatření"
+#: catalogue/models.py:14
+#| msgid "Measure group name"
+msgid "Measure group name (en)"
+msgstr "Název skupiny opetření (en)"
 
-#: catalogue/models.py:15
+#: catalogue/models.py:19
+#| msgid "Measure group description"
+msgid "Measure group description (cs)"
+msgstr "Popis skupiny opatření (cs)"
+
+#: catalogue/models.py:23
+#| msgid "Measure group description"
+msgid "Measure group description (en)"
+msgstr "Popis skupiny opatření (en)"
+
+#: catalogue/models.py:29
 msgid "Measure group icon"
 msgstr "Ikona skupiny opatření"
 
-#: catalogue/models.py:22 catalogue/models.py:35
+#: catalogue/models.py:36 catalogue/models.py:95
 msgid "Measure group"
 msgstr "Skupina opatření"
 
-#: catalogue/models.py:23
+#: catalogue/models.py:37
 msgid "Measure groups"
 msgstr "Skupiny opatření"
 
-#: catalogue/models.py:30
+#: catalogue/models.py:90
 msgid "Measure name"
 msgstr "Název opatření"
 
-#: catalogue/models.py:40
+#: catalogue/models.py:102
 msgid "Measure short description"
 msgstr "Krátky popis opatření"
 
-#: catalogue/models.py:44
+#: catalogue/models.py:110
 msgid "Temperature"
 msgstr "Teplota"
 
-#: catalogue/models.py:45
+#: catalogue/models.py:111
 msgid "Water"
 msgstr "Voda"
 
-#: catalogue/models.py:46
+#: catalogue/models.py:112
 msgid "Biodiversity"
 msgstr "Biodiverzita"
 
-#: catalogue/models.py:47
+#: catalogue/models.py:113
 msgid "Air"
 msgstr "Vzduch"
 
-#: catalogue/models.py:48
+#: catalogue/models.py:114
 msgid "Aesthetics"
 msgstr "Estetika"
 
-#: catalogue/models.py:54
+#: catalogue/models.py:141
 msgid "Measure"
 msgstr "Opatření"
 
-#: catalogue/models.py:55
+#: catalogue/models.py:142
 msgid "Measures"
 msgstr "Opatření"
 
