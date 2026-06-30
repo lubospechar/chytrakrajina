@@ -49,7 +49,17 @@ class LocationType(models.Model):
         verbose_name_plural = _("Location types")
 
 class MainAdvantage(models.Model):
-    advantage = models.CharField(max_length=35)
+    advantage_cs = models.CharField(max_length=35)
+    advantage_en = models.CharField(max_length=35, null=True, blank=True)
+
+    def __str__(self):
+        return self.advantage_cs
+
+    class Meta:
+        verbose_name = _("Main advantage")
+        verbose_name_plural = _("Main advantages")
+
+
 
 
 class Limitation(models.Model):
@@ -134,7 +144,7 @@ class Measure(models.Model):
     air = ScoreField(verbose_name=_("Air"))
     aesthetics = ScoreField(verbose_name=_("Aesthetics"))
 
-    main_advantage = models.ManyToManyField(MainAdvantage)
+    main_advantage = models.ManyToManyField(MainAdvantage, verbose_name=_("Main advantage"))
     limitation = models.ManyToManyField(Limitation)
 
     advantage = models.ManyToManyField(Advantage)
