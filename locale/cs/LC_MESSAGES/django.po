@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-30 13:45+0200\n"
+"POT-Creation-Date: 2026-06-30 14:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,11 +19,19 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n "
 "<= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
-#: catalogue/admin.py:19
-msgid "Base information"
+#: catalogue/admin.py:20
+#, fuzzy
+#| msgid "Base information"
+msgid "Base information (cs)"
 msgstr "Základní informace"
 
-#: catalogue/admin.py:20
+#: catalogue/admin.py:28
+#, fuzzy
+#| msgid "Base information"
+msgid "Base information (en)"
+msgstr "Základní informace"
+
+#: catalogue/admin.py:36
 msgid "Scores"
 msgstr "Skore"
 
@@ -44,22 +52,18 @@ msgid "Score must be at most 5."
 msgstr "Skore musí být maximálně 5"
 
 #: catalogue/models.py:10
-#| msgid "Measure group name"
 msgid "Measure group name (cs)"
 msgstr "Název skupiny opetření (cs)"
 
 #: catalogue/models.py:14
-#| msgid "Measure group name"
 msgid "Measure group name (en)"
 msgstr "Název skupiny opetření (en)"
 
 #: catalogue/models.py:19
-#| msgid "Measure group description"
 msgid "Measure group description (cs)"
 msgstr "Popis skupiny opatření (cs)"
 
 #: catalogue/models.py:23
-#| msgid "Measure group description"
 msgid "Measure group description (en)"
 msgstr "Popis skupiny opatření (en)"
 
@@ -67,7 +71,7 @@ msgstr "Popis skupiny opatření (en)"
 msgid "Measure group icon"
 msgstr "Ikona skupiny opatření"
 
-#: catalogue/models.py:36 catalogue/models.py:95
+#: catalogue/models.py:36 catalogue/models.py:102
 msgid "Measure group"
 msgstr "Skupina opatření"
 
@@ -76,45 +80,57 @@ msgid "Measure groups"
 msgstr "Skupiny opatření"
 
 #: catalogue/models.py:90
-msgid "Measure name"
-msgstr "Název opatření"
+#| msgid "Measure group name (cs)"
+msgid "Measure name (cs)"
+msgstr "Název skupiny opetření (cs)"
 
-#: catalogue/models.py:102
-msgid "Measure short description"
-msgstr "Krátky popis opatření"
+#: catalogue/models.py:95
+#| msgid "Measure group name (en)"
+msgid "Measure name (en)"
+msgstr "Název skupiny opetření (en)"
 
-#: catalogue/models.py:110
+#: catalogue/models.py:109
+#| msgid "Measure short description"
+msgid "Measure short description (cs)"
+msgstr "Krátky popis opatření (cs)"
+
+#: catalogue/models.py:114
+#| msgid "Measure short description"
+msgid "Measure short description (en)"
+msgstr "Krátky popis opatření (en)"
+
+#: catalogue/models.py:124
 msgid "Temperature"
 msgstr "Teplota"
 
-#: catalogue/models.py:111
+#: catalogue/models.py:125
 msgid "Water"
 msgstr "Voda"
 
-#: catalogue/models.py:112
+#: catalogue/models.py:126
 msgid "Biodiversity"
 msgstr "Biodiverzita"
 
-#: catalogue/models.py:113
+#: catalogue/models.py:127
 msgid "Air"
 msgstr "Vzduch"
 
-#: catalogue/models.py:114
+#: catalogue/models.py:128
 msgid "Aesthetics"
 msgstr "Estetika"
 
-#: catalogue/models.py:141
+#: catalogue/models.py:155
 msgid "Measure"
 msgstr "Opatření"
 
-#: catalogue/models.py:142
+#: catalogue/models.py:156
 msgid "Measures"
 msgstr "Opatření"
 
-#: chytrakrajina/settings.py:93
+#: chytrakrajina/settings.py:95
 msgid "Czech"
 msgstr "Čeština"
 
-#: chytrakrajina/settings.py:94
+#: chytrakrajina/settings.py:96
 msgid "English"
 msgstr "Angličtina"
