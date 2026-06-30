@@ -33,7 +33,7 @@ msgstr "Skore"
 
 #: catalogue/admin.py:42
 msgid "Additional parameters"
-msgstr ""
+msgstr "Další parametry"
 
 #: catalogue/apps.py:7
 msgid "Catalogue"
