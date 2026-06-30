@@ -11,11 +11,27 @@ class MeasureGroupAdmin(admin.ModelAdmin):
 
 @admin.register(Measure)
 class MeasureAdmin(admin.ModelAdmin):
-    list_display = ("name", "short_description")
+    list_display = ("name_cs", "short_description_cs", 'group')
     list_filter = ("group",)
-    search_fields = ("name", "short_description")
-    ordering = ("name",)
+    search_fields = ("name_cs", "short_description_cs")
+    ordering = ("name_cs",)
     fieldsets = (
-        (_("Base information"), {"fields": ("name", "short_description", "group")}),
+        (None, {"fields": ("group",)}),
+        (_("Base information (cs)"),
+            {"fields": (
+                "name_cs",
+                "short_description_cs",
+                "description_cs",
+            )},
+        ),
+
+        (_("Base information (en)"),
+            {"fields": (
+                "name_en",
+                "short_description_en",
+                "description_en",
+            )},
+
+        ),
         (_("Scores"), {"fields": ("aesthetics", "air", "biodiversity", "temperature", "water")}),
     )

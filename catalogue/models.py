@@ -30,7 +30,7 @@ class MeasureGroup(models.Model):
     )
 
     def __str__(self):
-        return self.name
+        return self.name_cs
 
     class Meta:
         verbose_name = _("Measure group")
@@ -85,9 +85,16 @@ class Measure(models.Model):
         AREA = "A", "Area"
 
     # base information
-    name = models.CharField(
+    name_cs = models.CharField(
         max_length=100,
-        verbose_name=_("Measure name"))
+        verbose_name=_("Measure name (cs)")
+    )
+
+    name_en = models.CharField(
+        max_length=100,
+        verbose_name=_("Measure name (en)"),
+        null=True, blank=True,
+    )
 
     group = models.ForeignKey(
         MeasureGroup,
@@ -97,12 +104,19 @@ class Measure(models.Model):
 
     location_type = models.ManyToManyField(LocationType)
 
-    short_description = models.CharField(
+    short_description_cs = models.CharField(
         max_length=255,
-        verbose_name=_("Measure short description")
+        verbose_name=_("Measure short description (cs)")
     )
 
-    description = MarkdownxField()
+    short_description_en = models.CharField(
+        max_length=255,
+        verbose_name=_("Measure short description (en)")
+    )
+
+    description_cs = MarkdownxField()
+
+    description_en = MarkdownxField()
 
     purpose = models.CharField(max_length=255)
 

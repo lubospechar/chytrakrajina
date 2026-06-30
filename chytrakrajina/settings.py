@@ -17,6 +17,7 @@ class Base(Configuration):
     ]
 
     THIRD_PARTY_APPS = [
+        'markdownx',
     ]
 
     LOCAL_APPS = [
