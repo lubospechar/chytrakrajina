@@ -7,6 +7,7 @@ class Base(Configuration):
     BASE_DIR = Path(__file__).resolve().parent.parent
     SECRET_KEY = config("SECRET_KEY")
 
+
     DJANGO_APPS = [
         "django.contrib.admin",
         "django.contrib.auth",
@@ -100,6 +101,8 @@ class Base(Configuration):
 
     STATIC_ROOT = config('STATIC_ROOT', default="/tmp/static/")
     MEDIA_ROOT = config('MEDIA_ROOT', default="/tmp/media/")
+
+    MARKDOWNX_EDITOR_RESIZABLE = False
 
 class Local(Base):
     DEBUG = True
