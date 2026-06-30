@@ -109,7 +109,7 @@ class Measure(models.Model):
         verbose_name=_("Measure group")
     )
 
-    location_type = models.ManyToManyField(LocationType)
+    location_type = models.ManyToManyField(LocationType, verbose_name=_("Location type"))
 
     short_description_cs = models.CharField(
         max_length=255,
