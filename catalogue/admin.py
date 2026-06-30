@@ -2,8 +2,13 @@ from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 from catalogue.models import (
     MeasureGroup,
-    Measure
+    Measure,
+    LocationType,
 )
+
+@admin.register(LocationType)
+class LocationTypeAdmin(admin.ModelAdmin):
+    list_display = ("location_type_cs", "location_type_en")
 
 @admin.register(MeasureGroup)
 class MeasureGroupAdmin(admin.ModelAdmin):
@@ -34,4 +39,5 @@ class MeasureAdmin(admin.ModelAdmin):
 
         ),
         (_("Scores"), {"fields": ("aesthetics", "air", "biodiversity", "temperature", "water")}),
+        (_("Additional parameters"), {"fields":  ("location_type", )}),
     )

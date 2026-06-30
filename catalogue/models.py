@@ -38,8 +38,15 @@ class MeasureGroup(models.Model):
 
 
 class LocationType(models.Model):
-    location_type = models.CharField(max_length=20)
+    location_type_cs = models.CharField(max_length=20, verbose_name=_("Location type (cs)"))
+    location_type_en = models.CharField(max_length=20, verbose_name=_("Location type (en)"), null=True, blank=True)
 
+    def __str__(self):
+        return self.location_type_cs
+
+    class Meta:
+        verbose_name = _("Location type")
+        verbose_name_plural = _("Location types")
 
 class MainAdvantage(models.Model):
     advantage = models.CharField(max_length=35)
