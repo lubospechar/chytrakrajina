@@ -159,7 +159,7 @@ class Measure(models.Model):
     time_horizon = models.CharField(max_length=1, choices=LMHChoices)
     measure_size = models.CharField(max_length=1, choices=SizeChoices)
 
-    diy = models.BooleanField()
+    diy = models.BooleanField(default=False)
 
     combine = models.ManyToManyField("Measure")
 
