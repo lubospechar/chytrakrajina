@@ -21,11 +21,11 @@ msgstr ""
 
 #: catalogue/admin.py:25
 msgid "Base information (cs)"
-msgstr "Základní informace"
+msgstr "Základní informace (cs)"
 
 #: catalogue/admin.py:33
 msgid "Base information (en)"
-msgstr "Základní informace"
+msgstr "Základní informace (en)"
 
 #: catalogue/admin.py:41
 msgid "Scores"

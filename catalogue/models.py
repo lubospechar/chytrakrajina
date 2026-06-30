@@ -128,12 +128,13 @@ class Measure(models.Model):
 
     short_description_en = models.CharField(
         max_length=255,
-        verbose_name=_("Measure short description (en)")
+        verbose_name=_("Measure short description (en)"),
+        null=True, blank=True,
     )
 
     description_cs = MarkdownxField(_("Measure description (cs)"))
 
-    description_en = MarkdownxField(_("Measure description (en)"))
+    description_en = MarkdownxField(_("Measure description (en)"), null=True, blank=True)
 
     purpose = models.CharField(max_length=255)
 
