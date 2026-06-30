@@ -153,7 +153,7 @@ class Measure(models.Model):
     complexity_of_realization = models.CharField(max_length=1, choices=LMHChoices)
     budget_choices = models.CharField(max_length=1, choices=LMHChoices)
 
-    price = models.PositiveIntegerField()
+    price = models.PositiveIntegerField(null=True, blank=True)
     units = models.CharField(max_length=10)
 
     time_horizon = models.CharField(max_length=1, choices=LMHChoices)
