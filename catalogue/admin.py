@@ -7,7 +7,7 @@ from catalogue.models import (
 
 @admin.register(MeasureGroup)
 class MeasureGroupAdmin(admin.ModelAdmin):
-    list_display = ("name", "description")
+    list_display = ("name_cs", "name_en", "description_cs", "description_en")
 
 @admin.register(Measure)
 class MeasureAdmin(admin.ModelAdmin):

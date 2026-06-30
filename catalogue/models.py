@@ -5,12 +5,24 @@ from markdownx.models import MarkdownxField
 
 
 class MeasureGroup(models.Model):
-    name = models.CharField(
+    name_cs = models.CharField(
         max_length=100,
-        verbose_name=_("Measure group name"))
+        verbose_name=_("Measure group name (cs)"))
 
-    description = models.TextField(
-        verbose_name=_("Measure group description"))
+    name_en = models.CharField(
+        max_length=100,
+        verbose_name=_("Measure group name (en)"),
+        null=True, blank=True,
+    )
+
+    description_cs = models.TextField(
+        verbose_name=_("Measure group description"),
+    )
+
+    description_en = models.TextField(
+        verbose_name=_("Measure group description"),
+        null=True, blank=True,
+    )
 
     icon = models.ImageField(
         upload_to="measure_groups",
