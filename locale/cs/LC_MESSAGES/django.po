@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-30 14:30+0200\n"
+"POT-Creation-Date: 2026-06-30 14:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,13 +20,11 @@ msgstr ""
 "<= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 #: catalogue/admin.py:20
-#, fuzzy
 #| msgid "Base information"
 msgid "Base information (cs)"
 msgstr "Základní informace"
 
 #: catalogue/admin.py:28
-#, fuzzy
 #| msgid "Base information"
 msgid "Base information (en)"
 msgstr "Základní informace"
@@ -80,24 +78,30 @@ msgid "Measure groups"
 msgstr "Skupiny opatření"
 
 #: catalogue/models.py:90
-#| msgid "Measure group name (cs)"
 msgid "Measure name (cs)"
 msgstr "Název skupiny opetření (cs)"
 
 #: catalogue/models.py:95
-#| msgid "Measure group name (en)"
 msgid "Measure name (en)"
 msgstr "Název skupiny opetření (en)"
 
 #: catalogue/models.py:109
-#| msgid "Measure short description"
 msgid "Measure short description (cs)"
 msgstr "Krátky popis opatření (cs)"
 
 #: catalogue/models.py:114
-#| msgid "Measure short description"
 msgid "Measure short description (en)"
 msgstr "Krátky popis opatření (en)"
+
+#: catalogue/models.py:117
+#| msgid "Measure group description (cs)"
+msgid "Measure description (cs)"
+msgstr "Popis opatření (cs)"
+
+#: catalogue/models.py:119
+#| msgid "Measure group description (en)"
+msgid "Measure description (en)"
+msgstr "Popis opatření (en)"
 
 #: catalogue/models.py:124
 msgid "Temperature"
