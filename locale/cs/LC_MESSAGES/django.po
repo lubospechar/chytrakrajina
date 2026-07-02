@@ -209,7 +209,7 @@ msgstr "Náročnost realizace"
 
 #: catalogue/models.py:165
 msgid "Budget"
-msgstr "Budget"
+msgstr "Náklady na realizaci"
 
 #: catalogue/models.py:167
 msgid "Price"
