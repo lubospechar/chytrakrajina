@@ -67,8 +67,15 @@ class Limitation(models.Model):
 
 
 class AdvatageCategory(models.Model):
-    advantage_category = models.CharField(max_length=35)
+    advantage_category_cs = models.CharField(max_length=35, verbose_name=_("Advantage category (cs)"))
+    advantage_category_en = models.CharField(max_length=35, null=True, blank=True, verbose_name=_("Advantage category (en)"))
 
+    def __str__(self):
+        return self.advantage_category_cs
+
+    class Meta:
+        verbose_name = _("Advantage category")
+        verbose_name_plural = _("Advantage categories")
 
 class Advantage(models.Model):
     advantage_category = models.ForeignKey(AdvatageCategory, on_delete=models.CASCADE)
@@ -146,9 +153,11 @@ class Measure(models.Model):
     aesthetics = ScoreField(verbose_name=_("Aesthetics"))
 
     main_advantage = models.ManyToManyField(MainAdvantage, verbose_name=_("Main advantage"))
+    advantage = models.ManyToManyField(Advantage)
+
     limitation = models.ManyToManyField(Limitation)
 
-    advantage = models.ManyToManyField(Advantage)
+
 
     complexity_of_realization = models.CharField(max_length=1, choices=LMHChoices)
     budget_choices = models.CharField(max_length=1, choices=LMHChoices)
