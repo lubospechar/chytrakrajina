@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-02 10:54+0200\n"
+"POT-Creation-Date: 2026-07-02 11:26+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,19 +19,23 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n "
 "<= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
-#: catalogue/admin.py:36
+#: catalogue/admin.py:32
+msgid "Main advantage and advantage cannot contain the same items."
+msgstr "Pole hlavní přínos a přínos nesmí obsahovat stejné hodnoty."
+
+#: catalogue/admin.py:63
 msgid "Base information (cs)"
 msgstr "Základní informace (cs)"
 
-#: catalogue/admin.py:44
+#: catalogue/admin.py:71
 msgid "Base information (en)"
 msgstr "Základní informace (en)"
 
-#: catalogue/admin.py:52
+#: catalogue/admin.py:79
 msgid "Scores"
 msgstr "Skore"
 
-#: catalogue/admin.py:53
+#: catalogue/admin.py:80
 msgid "Additional parameters"
 msgstr "Další parametry"
 

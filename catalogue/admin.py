@@ -1,5 +1,8 @@
 from django.contrib import admin
+from django import forms
 from django.utils.translation import gettext_lazy as _
+from django.core.exceptions import ValidationError
+
 from catalogue.models import (
     MeasureGroup,
     Measure,
@@ -7,6 +10,29 @@ from catalogue.models import (
     Advantage,
     AdvatageCategory,
 )
+
+class MeasureAdminForm(forms.ModelForm):
+    class Meta:
+        model = Measure
+        fields = "__all__"
+
+    def clean(self):
+        cleaned_data = super().clean()
+
+        main_advantages = cleaned_data.get("main_advantage")
+        advantages = cleaned_data.get("advantage")
+
+        if main_advantages and advantages:
+            advantage_duplicates = main_advantages.filter(
+                pk__in=advantages.values_list("pk", flat=True)
+            )
+
+            if advantage_duplicates.exists():
+                raise ValidationError(
+                    _("Main advantage and advantage cannot contain the same items.")
+                )
+
+        return cleaned_data
 
 @admin.register(AdvatageCategory)
 class AdvantageCategoryAdmin(admin.ModelAdmin):
@@ -27,6 +53,7 @@ class MeasureGroupAdmin(admin.ModelAdmin):
 
 @admin.register(Measure)
 class MeasureAdmin(admin.ModelAdmin):
+    form = MeasureAdminForm
     list_display = ("name_cs", "short_description_cs", 'group')
     list_filter = ("group",)
     search_fields = ("name_cs", "short_description_cs")
