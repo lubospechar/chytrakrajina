@@ -103,7 +103,7 @@ class SDG(models.Model):
 
 class Law(models.Model):
     description = models.CharField(max_length=100)
-    url = models.URLField
+    url = models.URLField()
 
     def __str__(self):
         return self.description
