@@ -17,8 +17,12 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-
+from django.utils.translation import gettext_lazy as _
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("markdownx/", include("markdownx.urls")),
 ]
+
+admin.site.site_header = _("Správa databáze katalogu Chytrá krajina")
+admin.site.site_title = _("Chytrá krajina")
+admin.site.index_title = _("Administrace katalogu")
