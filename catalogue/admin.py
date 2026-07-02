@@ -10,6 +10,8 @@ from catalogue.models import (
     Advantage,
     AdvatageCategory,
     Limitation,
+    SDG,
+    Law,
 )
 
 class MeasureAdminForm(forms.ModelForm):
@@ -34,6 +36,14 @@ class MeasureAdminForm(forms.ModelForm):
                 )
 
         return cleaned_data
+
+@admin.register(SDG)
+class SDGAdmin(admin.ModelAdmin):
+    list_display = ("sdg_number", "sdg_name")
+
+@admin.register(Law)
+class LawAdmin(admin.ModelAdmin):
+    list_display = ("description", "url")
 
 @admin.register(Limitation)
 class LimitationAdmin(admin.ModelAdmin):
@@ -89,4 +99,5 @@ class MeasureAdmin(admin.ModelAdmin):
             "limitation",
         )}),
         (_("Key parameters"), {"fields": ("complexity_of_realization", "budget_choices", "price", "units", "time_horizon", "diy", "measure_size",)}),
+        (_("Legislation"), {"fields": ("law", "sdg",)}),
     )

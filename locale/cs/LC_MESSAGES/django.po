@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-02 12:20+0200\n"
+"POT-Creation-Date: 2026-07-02 13:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,6 +42,12 @@ msgstr "Další parametry"
 #: catalogue/admin.py:91
 msgid "Key parameters"
 msgstr "Klíčové parametry"
+
+#: catalogue/admin.py:92 catalogue/models.py:112
+#, fuzzy
+#| msgid "Limitation"
+msgid "Legislation"
+msgstr "Legislativní rámec"
 
 #: catalogue/apps.py:7
 msgid "Catalogue"
@@ -79,7 +85,7 @@ msgstr "Popis skupiny opatření (en)"
 msgid "Measure group icon"
 msgstr "Ikona skupiny opatření"
 
-#: catalogue/models.py:36 catalogue/models.py:128
+#: catalogue/models.py:36 catalogue/models.py:142
 msgid "Measure group"
 msgstr "Skupina opatření"
 
@@ -95,7 +101,7 @@ msgstr "Cílové prostředí (cs)"
 msgid "Location type (en)"
 msgstr "Cílové prostředí (en)"
 
-#: catalogue/models.py:48 catalogue/models.py:131
+#: catalogue/models.py:48 catalogue/models.py:145
 msgid "Location type"
 msgstr "Cílové prostředí"
 
@@ -111,7 +117,7 @@ msgstr "Omezení aplikace (cs)"
 msgid "Limitation (en)"
 msgstr "Omezení aplikace (en)"
 
-#: catalogue/models.py:59 catalogue/models.py:160
+#: catalogue/models.py:59 catalogue/models.py:174
 msgid "Limitation"
 msgstr "Omezení aplikace"
 
@@ -135,7 +141,7 @@ msgstr "Karegorie přínosů opatření"
 msgid "Advantage categories"
 msgstr "Kategorie přínosů opatření"
 
-#: catalogue/models.py:84 catalogue/models.py:158
+#: catalogue/models.py:84 catalogue/models.py:172
 msgid "Advantage"
 msgstr "Přínos"
 
@@ -143,111 +149,123 @@ msgstr "Přínos"
 msgid "Advantages"
 msgstr "Přínosy"
 
-#: catalogue/models.py:104
+#: catalogue/models.py:100
+msgid "Sustainable Development Goal"
+msgstr "Cíl udržitelného rozvoje"
+
+#: catalogue/models.py:101
+msgid "Sustainable Development Goals"
+msgstr "Cíle udržitelného rozvoje"
+
+#: catalogue/models.py:113
+msgid "Legislations"
+msgstr "Legislativní rámce"
+
+#: catalogue/models.py:118
 msgid "Low"
 msgstr "Nízká"
 
-#: catalogue/models.py:105
+#: catalogue/models.py:119
 msgid "Medium"
 msgstr "Střední"
 
-#: catalogue/models.py:106
+#: catalogue/models.py:120
 msgid "High"
 msgstr "Vysoká"
 
-#: catalogue/models.py:109
+#: catalogue/models.py:123
 msgid "Point"
 msgstr "Bodové"
 
-#: catalogue/models.py:110
+#: catalogue/models.py:124
 msgid "Line"
 msgstr "Liniové"
 
-#: catalogue/models.py:111
+#: catalogue/models.py:125
 msgid "Area"
 msgstr "Plošné"
 
-#: catalogue/models.py:116
+#: catalogue/models.py:130
 msgid "Measure name (cs)"
 msgstr "Název skupiny opetření (cs)"
 
-#: catalogue/models.py:121
+#: catalogue/models.py:135
 msgid "Measure name (en)"
 msgstr "Název skupiny opetření (en)"
 
-#: catalogue/models.py:135
+#: catalogue/models.py:149
 msgid "Measure short description (cs)"
 msgstr "Krátky popis opatření (cs)"
 
-#: catalogue/models.py:140
+#: catalogue/models.py:154
 msgid "Measure short description (en)"
 msgstr "Krátky popis opatření (en)"
 
-#: catalogue/models.py:144
+#: catalogue/models.py:158
 msgid "Measure description (cs)"
 msgstr "Popis opatření (cs)"
 
-#: catalogue/models.py:146
+#: catalogue/models.py:160
 msgid "Measure description (en)"
 msgstr "Popis opatření (en)"
 
-#: catalogue/models.py:151
+#: catalogue/models.py:165
 msgid "Temperature"
 msgstr "Teplota"
 
-#: catalogue/models.py:152
+#: catalogue/models.py:166
 msgid "Water"
 msgstr "Voda"
 
-#: catalogue/models.py:153
+#: catalogue/models.py:167
 msgid "Biodiversity"
 msgstr "Biodiverzita"
 
-#: catalogue/models.py:154
+#: catalogue/models.py:168
 msgid "Air"
 msgstr "Vzduch"
 
-#: catalogue/models.py:155
+#: catalogue/models.py:169
 msgid "Aesthetics"
 msgstr "Estetika"
 
-#: catalogue/models.py:157
+#: catalogue/models.py:171
 msgid "Main advantage"
 msgstr "Hlavní přínos"
 
-#: catalogue/models.py:164
+#: catalogue/models.py:178
 msgid "Complexity of realization"
 msgstr "Náročnost realizace"
 
-#: catalogue/models.py:165
+#: catalogue/models.py:179
 msgid "Budget"
 msgstr "Náklady na realizaci"
 
-#: catalogue/models.py:167
+#: catalogue/models.py:181
 msgid "Price"
 msgstr "Cena"
 
-#: catalogue/models.py:168
+#: catalogue/models.py:182
 msgid "Units"
 msgstr "Jednotky"
 
-#: catalogue/models.py:170
+#: catalogue/models.py:184
 msgid "Time horizon"
 msgstr "Časový horizont"
 
-#: catalogue/models.py:171
+#: catalogue/models.py:185
 msgid "Measure size"
 msgstr "Prostorový typ opaření"
 
-#: catalogue/models.py:173
+#: catalogue/models.py:187
 msgid "DIY"
 msgstr "Svépomocná realizace"
 
-#: catalogue/models.py:184
+#: catalogue/models.py:198
 msgid "Measure"
 msgstr "Opatření"
 
-#: catalogue/models.py:185
+#: catalogue/models.py:199
 msgid "Measures"
 msgstr "Opatření"
 

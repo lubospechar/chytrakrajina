@@ -91,12 +91,26 @@ class PreDesign(models.Model):  # predprojektova priprava
 class SDG(models.Model):
     sdg_number = models.PositiveSmallIntegerField()
     sdg_name = models.CharField(max_length=100)
-    icon = models.ImageField()
+    icon = models.ImageField(null=True, blank=True, upload_to="sdg_icons")
+
+    def __str__(self):
+        return self.sdg_name
+
+    class Meta:
+        verbose_name = _("Sustainable Development Goal")
+        verbose_name_plural = _("Sustainable Development Goals")
 
 
 class Law(models.Model):
     description = models.CharField(max_length=100)
     url = models.URLField
+
+    def __str__(self):
+        return self.description
+
+    class Meta:
+        verbose_name = _("Legislation")
+        verbose_name_plural = _("Legislations")
 
 
 class Measure(models.Model):
