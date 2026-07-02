@@ -106,9 +106,9 @@ class Measure(models.Model):
         HIGH = "H", _("High")
 
     class SizeChoices(models.TextChoices):
-        POINT = "P", "Point"
-        LINE = "L", "Line"
-        AREA = "A", "Area"
+        POINT = "P", _("Point")
+        LINE = "L", _("Line")
+        AREA = "A", _("Area")
 
     # base information
     name_cs = models.CharField(

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-02 12:02+0200\n"
+"POT-Creation-Date: 2026-07-02 12:20+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -155,6 +155,18 @@ msgstr "Střední"
 msgid "High"
 msgstr "Vysoká"
 
+#: catalogue/models.py:109
+msgid "Point"
+msgstr "Bodové"
+
+#: catalogue/models.py:110
+msgid "Line"
+msgstr "Liniové"
+
+#: catalogue/models.py:111
+msgid "Area"
+msgstr "Plošné"
+
 #: catalogue/models.py:116
 msgid "Measure name (cs)"
 msgstr "Název skupiny opetření (cs)"
@@ -224,10 +236,8 @@ msgid "Time horizon"
 msgstr "Časový horizont"
 
 #: catalogue/models.py:171
-#, fuzzy
-#| msgid "Measures"
 msgid "Measure size"
-msgstr "Opatření"
+msgstr "Prostorový typ opaření"
 
 #: catalogue/models.py:173
 msgid "DIY"
