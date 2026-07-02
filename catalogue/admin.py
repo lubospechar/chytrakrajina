@@ -88,4 +88,5 @@ class MeasureAdmin(admin.ModelAdmin):
             "advantage",
             "limitation",
         )}),
+        (_("Key parameters"), {"fields": ("complexity_of_realization", "price", "units", "time_horizon", "diy",)}),
     )

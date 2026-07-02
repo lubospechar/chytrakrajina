@@ -161,16 +161,16 @@ class Measure(models.Model):
 
 
 
-    complexity_of_realization = models.CharField(max_length=1, choices=LMHChoices)
-    budget_choices = models.CharField(max_length=1, choices=LMHChoices)
+    complexity_of_realization = models.CharField(max_length=1, choices=LMHChoices, verbose_name=_("Complexity of realization"))
+    budget_choices = models.CharField(max_length=1, choices=LMHChoices, verbose_name=_("Budget"))
 
-    price = models.PositiveIntegerField(null=True, blank=True)
-    units = models.CharField(max_length=10)
+    price = models.PositiveIntegerField(null=True, blank=True, verbose_name=_("Price"))
+    units = models.CharField(max_length=10, verbose_name=_("Units"))
 
-    time_horizon = models.CharField(max_length=1, choices=LMHChoices)
-    measure_size = models.CharField(max_length=1, choices=SizeChoices)
+    time_horizon = models.CharField(max_length=1, choices=LMHChoices, verbose_name=_("Time horizon"))
+    measure_size = models.CharField(max_length=1, choices=SizeChoices, verbose_name=_("Measure size"))
 
-    diy = models.BooleanField(default=False)
+    diy = models.BooleanField(default=False, verbose_name=_("DIY"))
 
     combine = models.ManyToManyField("Measure")
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-02 11:40+0200\n"
+"POT-Creation-Date: 2026-07-02 11:58+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,6 +38,10 @@ msgstr "Skore"
 #: catalogue/admin.py:85
 msgid "Additional parameters"
 msgstr "Další parametry"
+
+#: catalogue/admin.py:91
+msgid "Key parameters"
+msgstr "Klíčové parametry"
 
 #: catalogue/apps.py:7
 msgid "Catalogue"
@@ -186,6 +190,36 @@ msgstr "Estetika"
 #: catalogue/models.py:157
 msgid "Main advantage"
 msgstr "Hlavní přínos"
+
+#: catalogue/models.py:164
+msgid "Complexity of realization"
+msgstr "Náročnost realizace"
+
+#: catalogue/models.py:165
+msgid "Budget"
+msgstr "Budget"
+
+#: catalogue/models.py:167
+msgid "Price"
+msgstr "Cena"
+
+#: catalogue/models.py:168
+msgid "Units"
+msgstr "Jednotky"
+
+#: catalogue/models.py:170
+msgid "Time horizon"
+msgstr "Časový horizont"
+
+#: catalogue/models.py:171
+#, fuzzy
+#| msgid "Measures"
+msgid "Measure size"
+msgstr "Opatření"
+
+#: catalogue/models.py:173
+msgid "DIY"
+msgstr "Svépomocná realizace"
 
 #: catalogue/models.py:184
 msgid "Measure"
