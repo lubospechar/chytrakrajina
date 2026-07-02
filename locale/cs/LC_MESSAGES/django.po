@@ -112,16 +112,12 @@ msgid "Advantage categories"
 msgstr "Kategorie přínosů opatření"
 
 #: catalogue/models.py:76 catalogue/models.py:150
-#, fuzzy
-#| msgid "Main advantage"
 msgid "Advantage"
-msgstr "Hlavní přínos"
+msgstr "Přínos"
 
 #: catalogue/models.py:77
-#, fuzzy
-#| msgid "Main advantages"
 msgid "Advantages"
-msgstr "Hlavní přínosy"
+msgstr "Přínosy"
 
 #: catalogue/models.py:108
 msgid "Measure name (cs)"
