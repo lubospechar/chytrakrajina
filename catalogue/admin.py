@@ -4,18 +4,18 @@ from catalogue.models import (
     MeasureGroup,
     Measure,
     LocationType,
-    MainAdvantage,
-    AdvatageCategory,
     Advantage,
+    AdvatageCategory,
 )
 
 @admin.register(AdvatageCategory)
 class AdvantageCategoryAdmin(admin.ModelAdmin):
     list_display = ("advantage_category_cs", "advantage_category_en")
 
-@admin.register(MainAdvantage)
+@admin.register(Advantage)
 class MainAdvantageAdmin(admin.ModelAdmin):
-    list_display = ("advantage_cs", "advantage_en")
+    list_display = ("advantage_cs", "advantage_en", "advantage_category")
+    list_filter = ("advantage_category",)
 
 @admin.register(LocationType)
 class LocationTypeAdmin(admin.ModelAdmin):
@@ -52,6 +52,6 @@ class MeasureAdmin(admin.ModelAdmin):
         (_("Scores"), {"fields": ("aesthetics", "air", "biodiversity", "temperature", "water")}),
         (_("Additional parameters"), {"fields":  (
             "location_type",
-            "main_advantage",
+            #"main_advantage",
         )}),
     )

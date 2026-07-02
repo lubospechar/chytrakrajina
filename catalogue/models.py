@@ -48,20 +48,6 @@ class LocationType(models.Model):
         verbose_name = _("Location type")
         verbose_name_plural = _("Location types")
 
-class MainAdvantage(models.Model):
-    advantage_cs = models.CharField(max_length=35)
-    advantage_en = models.CharField(max_length=35, null=True, blank=True)
-
-    def __str__(self):
-        return self.advantage_cs
-
-    class Meta:
-        verbose_name = _("Main advantage")
-        verbose_name_plural = _("Main advantages")
-
-
-
-
 class Limitation(models.Model):
     limitation = models.CharField(max_length=35)
 
@@ -77,10 +63,18 @@ class AdvatageCategory(models.Model):
         verbose_name = _("Advantage category")
         verbose_name_plural = _("Advantage categories")
 
-class Advantage(models.Model):
-    advantage_category = models.ForeignKey(AdvatageCategory, on_delete=models.CASCADE)
-    advantage = models.CharField(max_length=35)
 
+class Advantage(models.Model):
+    advantage_cs = models.CharField(max_length=35)
+    advantage_en = models.CharField(max_length=35, null=True, blank=True)
+    advantage_category = models.ForeignKey(AdvatageCategory, on_delete=models.CASCADE, verbose_name=_("Advantage category"))
+
+    def __str__(self):
+        return self.advantage_cs
+
+    class Meta:
+        verbose_name = _("Advantage")
+        verbose_name_plural = _("Advantages")
 
 class PreDesign(models.Model):  # predprojektova priprava
     prereqisite = models.CharField(max_length=255)
@@ -152,8 +146,8 @@ class Measure(models.Model):
     air = ScoreField(verbose_name=_("Air"))
     aesthetics = ScoreField(verbose_name=_("Aesthetics"))
 
-    main_advantage = models.ManyToManyField(MainAdvantage, verbose_name=_("Main advantage"))
-    advantage = models.ManyToManyField(Advantage)
+    main_advantage = models.ManyToManyField(Advantage, verbose_name=_("Main advantage"), related_name="main_advantage")
+    advantage = models.ManyToManyField(Advantage, verbose_name=_("Advantage"), related_name="advantage")
 
     limitation = models.ManyToManyField(Limitation)
 

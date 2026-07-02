@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-02 10:23+0200\n"
+"POT-Creation-Date: 2026-07-02 10:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,7 +71,7 @@ msgstr "Popis skupiny opatření (en)"
 msgid "Measure group icon"
 msgstr "Ikona skupiny opatření"
 
-#: catalogue/models.py:36 catalogue/models.py:126
+#: catalogue/models.py:36 catalogue/models.py:120
 msgid "Measure group"
 msgstr "Skupina opatření"
 
@@ -87,7 +87,7 @@ msgstr "Cílové prostředí (cs)"
 msgid "Location type (en)"
 msgstr "Cílové prostředí (en)"
 
-#: catalogue/models.py:48 catalogue/models.py:129
+#: catalogue/models.py:48 catalogue/models.py:123
 msgid "Location type"
 msgstr "Cílové prostředí"
 
@@ -95,79 +95,87 @@ msgstr "Cílové prostředí"
 msgid "Location types"
 msgstr "Cílové prostředí"
 
-#: catalogue/models.py:59 catalogue/models.py:155
-msgid "Main advantage"
-msgstr "Hlavní přínos"
-
-#: catalogue/models.py:60
-msgid "Main advantages"
-msgstr "Hlavní přínosy"
-
-#: catalogue/models.py:70
+#: catalogue/models.py:56
 msgid "Advantage category (cs)"
 msgstr "Kategorie přínosů opatření (cs)"
 
-#: catalogue/models.py:71
+#: catalogue/models.py:57
 msgid "Advantage category (en)"
 msgstr "Kategorie přínosů opatření (en)"
 
-#: catalogue/models.py:77
+#: catalogue/models.py:63 catalogue/models.py:70
 msgid "Advantage category"
 msgstr "Karegorie přínosů opatření"
 
-#: catalogue/models.py:78
+#: catalogue/models.py:64
 msgid "Advantage categories"
 msgstr "Kategorie přínosů opatření"
 
-#: catalogue/models.py:114
+#: catalogue/models.py:76 catalogue/models.py:150
+#, fuzzy
+#| msgid "Main advantage"
+msgid "Advantage"
+msgstr "Hlavní přínos"
+
+#: catalogue/models.py:77
+#, fuzzy
+#| msgid "Main advantages"
+msgid "Advantages"
+msgstr "Hlavní přínosy"
+
+#: catalogue/models.py:108
 msgid "Measure name (cs)"
 msgstr "Název skupiny opetření (cs)"
 
-#: catalogue/models.py:119
+#: catalogue/models.py:113
 msgid "Measure name (en)"
 msgstr "Název skupiny opetření (en)"
 
-#: catalogue/models.py:133
+#: catalogue/models.py:127
 msgid "Measure short description (cs)"
 msgstr "Krátky popis opatření (cs)"
 
-#: catalogue/models.py:138
+#: catalogue/models.py:132
 msgid "Measure short description (en)"
 msgstr "Krátky popis opatření (en)"
 
-#: catalogue/models.py:142
+#: catalogue/models.py:136
 msgid "Measure description (cs)"
 msgstr "Popis opatření (cs)"
 
-#: catalogue/models.py:144
+#: catalogue/models.py:138
 msgid "Measure description (en)"
 msgstr "Popis opatření (en)"
 
-#: catalogue/models.py:149
+#: catalogue/models.py:143
 msgid "Temperature"
 msgstr "Teplota"
 
-#: catalogue/models.py:150
+#: catalogue/models.py:144
 msgid "Water"
 msgstr "Voda"
 
-#: catalogue/models.py:151
+#: catalogue/models.py:145
 msgid "Biodiversity"
 msgstr "Biodiverzita"
 
-#: catalogue/models.py:152
+#: catalogue/models.py:146
 msgid "Air"
 msgstr "Vzduch"
 
-#: catalogue/models.py:153
+#: catalogue/models.py:147
 msgid "Aesthetics"
 msgstr "Estetika"
 
-#: catalogue/models.py:182
+#: catalogue/models.py:149
+msgid "Main advantage"
+msgstr "Hlavní přínos"
+
+#: catalogue/models.py:176
 msgid "Measure"
 msgstr "Opatření"
 
-#: catalogue/models.py:183
+#: catalogue/models.py:177
 msgid "Measures"
 msgstr "Opatření"
 
