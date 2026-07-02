@@ -9,6 +9,7 @@ from catalogue.models import (
     LocationType,
     Advantage,
     AdvatageCategory,
+    Limitation,
 )
 
 class MeasureAdminForm(forms.ModelForm):
@@ -33,6 +34,10 @@ class MeasureAdminForm(forms.ModelForm):
                 )
 
         return cleaned_data
+
+@admin.register(Limitation)
+class LimitationAdmin(admin.ModelAdmin):
+    list_display = ("limitation_cs", "limitation_en")
 
 @admin.register(AdvatageCategory)
 class AdvantageCategoryAdmin(admin.ModelAdmin):
@@ -81,5 +86,6 @@ class MeasureAdmin(admin.ModelAdmin):
             "location_type",
             "main_advantage",
             "advantage",
+            "limitation",
         )}),
     )

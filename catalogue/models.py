@@ -49,7 +49,15 @@ class LocationType(models.Model):
         verbose_name_plural = _("Location types")
 
 class Limitation(models.Model):
-    limitation = models.CharField(max_length=35)
+    limitation_cs = models.CharField(max_length=35, verbose_name=_("Limitation (cs)"))
+    limitation_en = models.CharField(max_length=35, null=True, blank=True, verbose_name=_("Limitation (en)"))
+
+    def __str__(self):
+        return self.limitation_cs
+
+    class Meta:
+        verbose_name = _("Limitation")
+        verbose_name_plural = _("Limitations")
 
 
 class AdvatageCategory(models.Model):
@@ -149,7 +157,7 @@ class Measure(models.Model):
     main_advantage = models.ManyToManyField(Advantage, verbose_name=_("Main advantage"), related_name="main_advantage")
     advantage = models.ManyToManyField(Advantage, verbose_name=_("Advantage"), related_name="advantage")
 
-    limitation = models.ManyToManyField(Limitation)
+    limitation = models.ManyToManyField(Limitation, verbose_name=_("Limitation"))
 
 
 
