@@ -186,7 +186,7 @@ class Measure(models.Model):
 
     diy = models.BooleanField(default=False, verbose_name=_("DIY"))
 
-    combine = models.ManyToManyField("Measure")
+    combine = models.ManyToManyField("Measure", verbose_name=_("Related measures"), related_name="related_measures", blank=True,)
 
     sdg = models.ManyToManyField(SDG)
     law = models.ManyToManyField(Law)

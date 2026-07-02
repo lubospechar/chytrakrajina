@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-02 13:02+0200\n"
+"POT-Creation-Date: 2026-07-02 13:17+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,35 +19,39 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n "
 "<= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
-#: catalogue/admin.py:33
+#: catalogue/admin.py:35
 msgid "Main advantage and advantage cannot contain the same items."
 msgstr "Pole hlavní přínos a přínos nesmí obsahovat stejné hodnoty."
 
-#: catalogue/admin.py:68
+#: catalogue/admin.py:78
 msgid "Base information (cs)"
 msgstr "Základní informace (cs)"
 
-#: catalogue/admin.py:76
+#: catalogue/admin.py:86
 msgid "Base information (en)"
 msgstr "Základní informace (en)"
 
-#: catalogue/admin.py:84
+#: catalogue/admin.py:94
 msgid "Scores"
 msgstr "Skore"
 
-#: catalogue/admin.py:85
+#: catalogue/admin.py:95
 msgid "Additional parameters"
 msgstr "Další parametry"
 
-#: catalogue/admin.py:91
+#: catalogue/admin.py:101
 msgid "Key parameters"
 msgstr "Klíčové parametry"
 
-#: catalogue/admin.py:92 catalogue/models.py:112
+#: catalogue/admin.py:102 catalogue/models.py:112
 #, fuzzy
 #| msgid "Limitation"
 msgid "Legislation"
 msgstr "Legislativní rámec"
+
+#: catalogue/admin.py:103
+msgid "Other"
+msgstr "Ostatní"
 
 #: catalogue/apps.py:7
 msgid "Catalogue"
@@ -261,6 +265,10 @@ msgstr "Prostorový typ opaření"
 msgid "DIY"
 msgstr "Svépomocná realizace"
 
+#: catalogue/models.py:189
+msgid "Related measures"
+msgstr "Související opatření"
+
 #: catalogue/models.py:198
 msgid "Measure"
 msgstr "Opatření"
@@ -276,3 +284,15 @@ msgstr "Čeština"
 #: chytrakrajina/settings.py:96
 msgid "English"
 msgstr "Angličtina"
+
+#: chytrakrajina/urls.py:26
+msgid "Správa databáze katalogu Chytrá krajina"
+msgstr "Správa databáze katalogu Chytrá krajina"
+
+#: chytrakrajina/urls.py:27
+msgid "Chytrá krajina"
+msgstr "Správa databáze katalogu Chytrá krajina"
+
+#: chytrakrajina/urls.py:28
+msgid "Administrace katalogu"
+msgstr "Správa databáze katalogu Chytrá krajina"
