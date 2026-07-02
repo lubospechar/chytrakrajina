@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-02 11:58+0200\n"
+"POT-Creation-Date: 2026-07-02 12:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -142,6 +142,18 @@ msgstr "Přínos"
 #: catalogue/models.py:85
 msgid "Advantages"
 msgstr "Přínosy"
+
+#: catalogue/models.py:104
+msgid "Low"
+msgstr "Nízká"
+
+#: catalogue/models.py:105
+msgid "Medium"
+msgstr "Střední"
+
+#: catalogue/models.py:106
+msgid "High"
+msgstr "Vysoká"
 
 #: catalogue/models.py:116
 msgid "Measure name (cs)"

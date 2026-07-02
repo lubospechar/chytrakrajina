@@ -101,9 +101,9 @@ class Law(models.Model):
 
 class Measure(models.Model):
     class LMHChoices(models.TextChoices):
-        LOW = "L", "Low"
-        MIDDLE = "M", "Medium"
-        HIGH = "H", "High"
+        LOW = "L", _("Low")
+        MIDDLE = "M", _("Medium")
+        HIGH = "H", _("High")
 
     class SizeChoices(models.TextChoices):
         POINT = "P", "Point"
