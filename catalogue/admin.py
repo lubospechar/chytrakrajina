@@ -52,6 +52,7 @@ class MeasureAdmin(admin.ModelAdmin):
         (_("Scores"), {"fields": ("aesthetics", "air", "biodiversity", "temperature", "water")}),
         (_("Additional parameters"), {"fields":  (
             "location_type",
-            #"main_advantage",
+            "main_advantage",
+            "advantage",
         )}),
     )
