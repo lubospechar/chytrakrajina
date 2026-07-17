@@ -181,6 +181,7 @@ class TempAdvantage(models.Model):
     old_pk = models.PositiveIntegerField(unique=True, verbose_name=_("Old primary key"))
     advantage_cs = models.CharField(max_length=35, verbose_name=_("Advantage (cs)"))
     advantage_en = models.CharField(max_length=35, null=True, blank=True, verbose_name=_("Advantage (en)"))
+    advantage_category = models.ForeignKey(TempAdvatageCategory, on_delete=models.CASCADE, verbose_name=_("Advantage category"))
 
 class Advantage(models.Model):
     advantage_cs = models.CharField(max_length=35)
