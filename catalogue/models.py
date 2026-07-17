@@ -259,6 +259,94 @@ class Law(models.Model):
         verbose_name_plural = _("Legislations")
 
 
+class TempMeasure(models.Model):
+    class LMHChoices(models.TextChoices):
+        LOW = "L", _("Low")
+        MIDDLE = "M", _("Medium")
+        HIGH = "H", _("High")
+
+    class SizeChoices(models.TextChoices):
+        POINT = "P", _("Point")
+        LINE = "L", _("Line")
+        AREA = "A", _("Area")
+
+    uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        unique=True,
+        verbose_name=_("UUID"),
+        primary_key=True,
+    )
+    old_pk = models.PositiveIntegerField(unique=True, verbose_name=_("Old primary key"))
+
+
+    # base information
+    name_cs = models.CharField(
+        max_length=100,
+        verbose_name=_("Measure name (cs)")
+    )
+
+    name_en = models.CharField(
+        max_length=100,
+        verbose_name=_("Measure name (en)"),
+        null=True, blank=True,
+    )
+
+    group = models.ForeignKey(
+        TempMesureGroup,
+        on_delete=models.CASCADE,
+        verbose_name=_("Measure group")
+    )
+
+    location_type = models.ManyToManyField(TempLocationType, verbose_name=_("Location type"))
+
+    short_description_cs = models.CharField(
+        max_length=255,
+        verbose_name=_("Measure short description (cs)")
+    )
+
+    short_description_en = models.CharField(
+        max_length=255,
+        verbose_name=_("Measure short description (en)"),
+        null=True, blank=True,
+    )
+
+    description_cs = MarkdownxField(_("Measure description (cs)"))
+
+    description_en = MarkdownxField(_("Measure description (en)"), null=True, blank=True)
+
+    purpose = models.CharField(max_length=255)
+
+    # score
+    temperature = ScoreField(verbose_name=_("Temperature"))
+    water = ScoreField(verbose_name=_("Water"))
+    biodiversity = ScoreField(verbose_name=_("Biodiversity"))
+    air = ScoreField(verbose_name=_("Air"))
+    aesthetics = ScoreField(verbose_name=_("Aesthetics"))
+
+    main_advantage = models.ManyToManyField(TempAdvantage, verbose_name=_("Main advantage"), related_name="main_advantage")
+    advantage = models.ManyToManyField(TempAdvantage, verbose_name=_("Advantage"), related_name="advantage")
+
+    limitation = models.ManyToManyField(TempLimitation, verbose_name=_("Limitation"))
+
+
+
+    complexity_of_realization = models.CharField(max_length=1, choices=LMHChoices, verbose_name=_("Complexity of realization"))
+    budget_choices = models.CharField(max_length=1, choices=LMHChoices, verbose_name=_("Budget"))
+
+    price = models.PositiveIntegerField(null=True, blank=True, verbose_name=_("Price"))
+    units = models.CharField(max_length=10, verbose_name=_("Units"))
+
+    time_horizon = models.CharField(max_length=1, choices=LMHChoices, verbose_name=_("Time horizon"))
+    measure_size = models.CharField(max_length=1, choices=SizeChoices, verbose_name=_("Measure size"))
+
+    diy = models.BooleanField(default=False, verbose_name=_("DIY"))
+
+    combine = models.ManyToManyField("TempMeasure", verbose_name=_("Related measures"), related_name="related_measures", blank=True,)
+
+    sdg = models.ManyToManyField(TempSDG)
+    law = models.ManyToManyField(TempLaw)
+
 class Measure(models.Model):
     class LMHChoices(models.TextChoices):
         LOW = "L", _("Low")
