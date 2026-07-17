@@ -78,6 +78,35 @@ class MeasureGroup(models.Model):
         verbose_name_plural = _("Measure groups")
 
 
+class TempLocationType(models.Model):
+    uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        unique=True,
+        verbose_name=_("UUID"),
+    )
+
+    old_pk = models.PositiveIntegerField(
+        unique=True,
+        verbose_name=_("Old primary key"),
+    )
+
+    location_type_cs = models.CharField(
+        max_length=20,
+        verbose_name=_("Location type (cs)"),
+    )
+
+    location_type_en = models.CharField(
+        max_length=20,
+        verbose_name=_("Location type (en)"),
+        null=True,
+        blank=True,
+    )
+
+    def __str__(self):
+        return self.location_type_cs
+
+
 class LocationType(models.Model):
     location_type_cs = models.CharField(max_length=20, verbose_name=_("Location type (cs)"))
     location_type_en = models.CharField(max_length=20, verbose_name=_("Location type (en)"), null=True, blank=True)
