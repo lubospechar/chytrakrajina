@@ -209,6 +209,18 @@ class TempPreDesign(models.Model):
 class PreDesign(models.Model):  # predprojektova priprava
     prereqisite = models.CharField(max_length=255)
 
+class TempSDG(models.Model):
+    uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        unique=True,
+        verbose_name=_("UUID"),
+        primary_key=True,
+    )
+    old_pk = models.PositiveIntegerField(unique=True, verbose_name=_("Old primary key"))
+    sdg_number = models.PositiveSmallIntegerField()
+    sdg_name = models.CharField(max_length=100)
+    icon = models.ImageField(null=True, blank=True, upload_to="sdg_icons")
 
 class SDG(models.Model):
     sdg_number = models.PositiveSmallIntegerField()
