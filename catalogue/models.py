@@ -1,8 +1,49 @@
+import uuid
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from catalogue.fields import ScoreField
 from markdownx.models import MarkdownxField
 
+
+class TempMesureGroup(models.Model):
+    uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        unique=True,
+        verbose_name=_("UUID"),
+    )
+
+    old_pk = models.PositiveIntegerField(unique=True, verbose_name=_("Old primary key"))
+
+    name_cs = models.CharField(
+        max_length=100,
+        verbose_name=_("Measure group name (cs)")
+    )
+
+    name_en = models.CharField(
+        max_length=100,
+        verbose_name=_("Measure group name (en)"),
+        null=True,
+        blank=True,
+    )
+
+    description_cs = models.TextField(
+        verbose_name=_("Measure group description (cs)"),
+    )
+
+    description_en = models.TextField(
+        verbose_name=_("Measure group description (en)"),
+        null=True,
+        blank=True,
+    )
+
+    icon = models.ImageField(
+        upload_to="temp_measure_groups",
+        verbose_name=_("Measure group icon")
+    )
+
+    def __str__(self):
+        return self.name_cs
 
 class MeasureGroup(models.Model):
     name_cs = models.CharField(
