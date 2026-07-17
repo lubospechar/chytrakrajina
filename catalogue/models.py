@@ -11,6 +11,7 @@ class TempMesureGroup(models.Model):
         editable=False,
         unique=True,
         verbose_name=_("UUID"),
+        primary_key=True,
     )
 
     old_pk = models.PositiveIntegerField(unique=True, verbose_name=_("Old primary key"))
@@ -84,6 +85,7 @@ class TempLocationType(models.Model):
         editable=False,
         unique=True,
         verbose_name=_("UUID"),
+        primary_key=True,
     )
 
     old_pk = models.PositiveIntegerField(
@@ -125,6 +127,7 @@ class TempLimitation(models.Model):
         editable=False,
         unique=True,
         verbose_name=_("UUID"),
+        primary_key=True,
     )
     old_pk = models.PositiveIntegerField(unique=True, verbose_name=_("Old primary key"))
     limitation_cs = models.CharField(max_length=35, verbose_name=_("Limitation (cs)"))
