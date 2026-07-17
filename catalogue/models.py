@@ -1,3 +1,4 @@
+import uuid
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from catalogue.fields import ScoreField
@@ -5,14 +6,25 @@ from markdownx.models import MarkdownxField
 
 
 class MeasureGroup(models.Model):
+    uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        unique=True,
+        verbose_name=_("UUID"),
+        primary_key=True,
+    )
+
+
     name_cs = models.CharField(
         max_length=100,
-        verbose_name=_("Measure group name (cs)"))
+        verbose_name=_("Measure group name (cs)")
+    )
 
     name_en = models.CharField(
         max_length=100,
         verbose_name=_("Measure group name (en)"),
-        null=True, blank=True,
+        null=True,
+        blank=True,
     )
 
     description_cs = models.TextField(
@@ -21,7 +33,8 @@ class MeasureGroup(models.Model):
 
     description_en = models.TextField(
         verbose_name=_("Measure group description (en)"),
-        null=True, blank=True,
+        null=True,
+        blank=True,
     )
 
     icon = models.ImageField(
@@ -32,14 +45,33 @@ class MeasureGroup(models.Model):
     def __str__(self):
         return self.name_cs
 
+
     class Meta:
         verbose_name = _("Measure group")
         verbose_name_plural = _("Measure groups")
 
 
 class LocationType(models.Model):
-    location_type_cs = models.CharField(max_length=20, verbose_name=_("Location type (cs)"))
-    location_type_en = models.CharField(max_length=20, verbose_name=_("Location type (en)"), null=True, blank=True)
+    uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        unique=True,
+        verbose_name=_("UUID"),
+        primary_key=True,
+    )
+
+
+    location_type_cs = models.CharField(
+        max_length=20,
+        verbose_name=_("Location type (cs)"),
+    )
+
+    location_type_en = models.CharField(
+        max_length=20,
+        verbose_name=_("Location type (en)"),
+        null=True,
+        blank=True,
+    )
 
     def __str__(self):
         return self.location_type_cs
@@ -48,9 +80,19 @@ class LocationType(models.Model):
         verbose_name = _("Location type")
         verbose_name_plural = _("Location types")
 
+
 class Limitation(models.Model):
+    uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        unique=True,
+        verbose_name=_("UUID"),
+        primary_key=True,
+    )
+
     limitation_cs = models.CharField(max_length=35, verbose_name=_("Limitation (cs)"))
     limitation_en = models.CharField(max_length=35, null=True, blank=True, verbose_name=_("Limitation (en)"))
+
 
     def __str__(self):
         return self.limitation_cs
@@ -61,6 +103,14 @@ class Limitation(models.Model):
 
 
 class AdvatageCategory(models.Model):
+    uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        unique=True,
+        verbose_name=_("UUID"),
+        primary_key=True,
+    )
+
     advantage_category_cs = models.CharField(max_length=35, verbose_name=_("Advantage category (cs)"))
     advantage_category_en = models.CharField(max_length=35, null=True, blank=True, verbose_name=_("Advantage category (en)"))
 
@@ -73,9 +123,18 @@ class AdvatageCategory(models.Model):
 
 
 class Advantage(models.Model):
-    advantage_cs = models.CharField(max_length=35)
-    advantage_en = models.CharField(max_length=35, null=True, blank=True)
+    uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        unique=True,
+        verbose_name=_("UUID"),
+        primary_key=True,
+    )
+
+    advantage_cs = models.CharField(max_length=35, verbose_name=_("Advantage (cs)"))
+    advantage_en = models.CharField(max_length=35, null=True, blank=True, verbose_name=_("Advantage (en)"))
     advantage_category = models.ForeignKey(AdvatageCategory, on_delete=models.CASCADE, verbose_name=_("Advantage category"))
+
 
     def __str__(self):
         return self.advantage_cs
@@ -84,14 +143,31 @@ class Advantage(models.Model):
         verbose_name = _("Advantage")
         verbose_name_plural = _("Advantages")
 
-class PreDesign(models.Model):  # predprojektova priprava
-    prereqisite = models.CharField(max_length=255)
+class PreDesign(models.Model):
+    uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        unique=True,
+        verbose_name=_("UUID"),
+        primary_key=True,
+    )
+
+    prereqisite = models.CharField(max_length=255, verbose_name=_("Prerequisite"))
 
 
 class SDG(models.Model):
+    uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        unique=True,
+        verbose_name=_("UUID"),
+        primary_key=True,
+    )
+
     sdg_number = models.PositiveSmallIntegerField()
     sdg_name = models.CharField(max_length=100)
     icon = models.ImageField(null=True, blank=True, upload_to="sdg_icons")
+
 
     def __str__(self):
         return self.sdg_name
@@ -102,6 +178,14 @@ class SDG(models.Model):
 
 
 class Law(models.Model):
+    uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        unique=True,
+        verbose_name=_("UUID"),
+        primary_key=True,
+    )
+
     description = models.CharField(max_length=100)
     url = models.URLField()
 
@@ -123,6 +207,16 @@ class Measure(models.Model):
         POINT = "P", _("Point")
         LINE = "L", _("Line")
         AREA = "A", _("Area")
+
+    uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        unique=True,
+        verbose_name=_("UUID"),
+        primary_key=True,
+    )
+
+
 
     # base information
     name_cs = models.CharField(
@@ -191,6 +285,7 @@ class Measure(models.Model):
     sdg = models.ManyToManyField(SDG)
     law = models.ManyToManyField(Law)
 
+
     def __str__(self):
         return self.name_cs
 
@@ -198,7 +293,18 @@ class Measure(models.Model):
         verbose_name = _("Measure")
         verbose_name_plural = _("Measures")
 
+class Performance(models.Model):
+    uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        unique=True,
+        verbose_name=_("UUID"),
+        primary_key=True,
+    )
 
-class Performance(models.Model):  # kvantitativni parametry
-    measure = models.ForeignKey(Measure, on_delete=models.CASCADE)
-    performance = models.CharField(max_length=100)
+    measure = models.ForeignKey(
+        Measure,
+        on_delete=models.CASCADE,
+    )
+    performance = models.CharField(max_length=100, verbose_name=_("Performance"))
+
