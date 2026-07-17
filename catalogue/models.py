@@ -146,6 +146,18 @@ class Limitation(models.Model):
         verbose_name_plural = _("Limitations")
 
 
+class TempAdvatageCategory(models.Model):
+    uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        unique=True,
+        verbose_name=_("UUID"),
+        primary_key=True,
+    )
+    old_pk = models.PositiveIntegerField(unique=True, verbose_name=_("Old primary key"))
+    advantage_category_cs = models.CharField(max_length=35, verbose_name=_("Advantage category (cs)"))
+    advantage_category_en = models.CharField(max_length=35, null=True, blank=True, verbose_name=_("Advantage category (en)"))
+
 class AdvatageCategory(models.Model):
     advantage_category_cs = models.CharField(max_length=35, verbose_name=_("Advantage category (cs)"))
     advantage_category_en = models.CharField(max_length=35, null=True, blank=True, verbose_name=_("Advantage category (en)"))
