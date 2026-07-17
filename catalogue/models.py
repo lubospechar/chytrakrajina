@@ -5,7 +5,7 @@ from catalogue.fields import ScoreField
 from markdownx.models import MarkdownxField
 
 
-class TempMesureGroup(models.Model):
+class MeasureGroup(models.Model):
     uuid = models.UUIDField(
         default=uuid.uuid4,
         editable=False,
@@ -52,7 +52,7 @@ class TempMesureGroup(models.Model):
         verbose_name_plural = _("Measure groups")
 
 
-class TempLocationType(models.Model):
+class LocationType(models.Model):
     uuid = models.UUIDField(
         default=uuid.uuid4,
         editable=False,
@@ -86,7 +86,7 @@ class TempLocationType(models.Model):
         verbose_name_plural = _("Location types")
 
 
-class TempLimitation(models.Model):
+class Limitation(models.Model):
     uuid = models.UUIDField(
         default=uuid.uuid4,
         editable=False,
@@ -107,7 +107,7 @@ class TempLimitation(models.Model):
         verbose_name_plural = _("Limitations")
 
 
-class TempAdvatageCategory(models.Model):
+class AdvatageCategory(models.Model):
     uuid = models.UUIDField(
         default=uuid.uuid4,
         editable=False,
@@ -127,7 +127,7 @@ class TempAdvatageCategory(models.Model):
         verbose_name_plural = _("Advantage categories")
 
 
-class TempAdvantage(models.Model):
+class Advantage(models.Model):
     uuid = models.UUIDField(
         default=uuid.uuid4,
         editable=False,
@@ -138,7 +138,7 @@ class TempAdvantage(models.Model):
     old_pk = models.PositiveIntegerField(unique=True, verbose_name=_("Old primary key"))
     advantage_cs = models.CharField(max_length=35, verbose_name=_("Advantage (cs)"))
     advantage_en = models.CharField(max_length=35, null=True, blank=True, verbose_name=_("Advantage (en)"))
-    advantage_category = models.ForeignKey(TempAdvatageCategory, on_delete=models.CASCADE, verbose_name=_("Advantage category"))
+    advantage_category = models.ForeignKey(AdvatageCategory, on_delete=models.CASCADE, verbose_name=_("Advantage category"))
 
 
     def __str__(self):
@@ -148,7 +148,7 @@ class TempAdvantage(models.Model):
         verbose_name = _("Advantage")
         verbose_name_plural = _("Advantages")
 
-class TempPreDesign(models.Model):
+class PreDesign(models.Model):
     uuid = models.UUIDField(
         default=uuid.uuid4,
         editable=False,
@@ -160,7 +160,7 @@ class TempPreDesign(models.Model):
     prereqisite = models.CharField(max_length=255, verbose_name=_("Prerequisite"))
 
 
-class TempSDG(models.Model):
+class SDG(models.Model):
     uuid = models.UUIDField(
         default=uuid.uuid4,
         editable=False,
@@ -182,7 +182,7 @@ class TempSDG(models.Model):
         verbose_name_plural = _("Sustainable Development Goals")
 
 
-class TempLaw(models.Model):
+class Law(models.Model):
     uuid = models.UUIDField(
         default=uuid.uuid4,
         editable=False,
@@ -202,7 +202,7 @@ class TempLaw(models.Model):
         verbose_name_plural = _("Legislations")
 
 
-class TempMeasure(models.Model):
+class Measure(models.Model):
     class LMHChoices(models.TextChoices):
         LOW = "L", _("Low")
         MIDDLE = "M", _("Medium")
@@ -236,12 +236,12 @@ class TempMeasure(models.Model):
     )
 
     group = models.ForeignKey(
-        TempMesureGroup,
+        MeasureGroup,
         on_delete=models.CASCADE,
         verbose_name=_("Measure group")
     )
 
-    location_type = models.ManyToManyField(TempLocationType, verbose_name=_("Location type"))
+    location_type = models.ManyToManyField(LocationType, verbose_name=_("Location type"))
 
     short_description_cs = models.CharField(
         max_length=255,
@@ -267,10 +267,10 @@ class TempMeasure(models.Model):
     air = ScoreField(verbose_name=_("Air"))
     aesthetics = ScoreField(verbose_name=_("Aesthetics"))
 
-    main_advantage = models.ManyToManyField(TempAdvantage, verbose_name=_("Main advantage"), related_name="main_advantage")
-    advantage = models.ManyToManyField(TempAdvantage, verbose_name=_("Advantage"), related_name="advantage")
+    main_advantage = models.ManyToManyField(Advantage, verbose_name=_("Main advantage"), related_name="main_advantage")
+    advantage = models.ManyToManyField(Advantage, verbose_name=_("Advantage"), related_name="advantage")
 
-    limitation = models.ManyToManyField(TempLimitation, verbose_name=_("Limitation"))
+    limitation = models.ManyToManyField(Limitation, verbose_name=_("Limitation"))
 
 
 
@@ -285,10 +285,10 @@ class TempMeasure(models.Model):
 
     diy = models.BooleanField(default=False, verbose_name=_("DIY"))
 
-    combine = models.ManyToManyField("TempMeasure", verbose_name=_("Related measures"), related_name="related_measures", blank=True,)
+    combine = models.ManyToManyField("Measure", verbose_name=_("Related measures"), related_name="related_measures", blank=True,)
 
-    sdg = models.ManyToManyField(TempSDG)
-    law = models.ManyToManyField(TempLaw)
+    sdg = models.ManyToManyField(SDG)
+    law = models.ManyToManyField(Law)
 
 
     def __str__(self):
@@ -298,7 +298,7 @@ class TempMeasure(models.Model):
         verbose_name = _("Measure")
         verbose_name_plural = _("Measures")
 
-class TempPerformance(models.Model):
+class Performance(models.Model):
     uuid = models.UUIDField(
         default=uuid.uuid4,
         editable=False,
@@ -308,7 +308,7 @@ class TempPerformance(models.Model):
     )
     old_pk = models.PositiveIntegerField(unique=True, verbose_name=_("Old primary key"))
     measure = models.ForeignKey(
-        TempMeasure,
+        Measure,
         on_delete=models.CASCADE,
     )
     performance = models.CharField(max_length=100, verbose_name=_("Performance"))
