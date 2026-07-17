@@ -14,10 +14,8 @@ class MeasureGroup(models.Model):
         primary_key=True,
     )
 
-
     name_cs = models.CharField(
-        max_length=100,
-        verbose_name=_("Measure group name (cs)")
+        max_length=100, verbose_name=_("Measure group name (cs)")
     )
 
     name_en = models.CharField(
@@ -38,13 +36,11 @@ class MeasureGroup(models.Model):
     )
 
     icon = models.ImageField(
-        upload_to="measure_groups",
-        verbose_name=_("Measure group icon")
+        upload_to="measure_groups", verbose_name=_("Measure group icon")
     )
 
     def __str__(self):
         return self.name_cs
-
 
     class Meta:
         verbose_name = _("Measure group")
@@ -59,7 +55,6 @@ class LocationType(models.Model):
         verbose_name=_("UUID"),
         primary_key=True,
     )
-
 
     location_type_cs = models.CharField(
         max_length=20,
@@ -91,8 +86,9 @@ class Limitation(models.Model):
     )
 
     limitation_cs = models.CharField(max_length=35, verbose_name=_("Limitation (cs)"))
-    limitation_en = models.CharField(max_length=35, null=True, blank=True, verbose_name=_("Limitation (en)"))
-
+    limitation_en = models.CharField(
+        max_length=35, null=True, blank=True, verbose_name=_("Limitation (en)")
+    )
 
     def __str__(self):
         return self.limitation_cs
@@ -111,8 +107,12 @@ class AdvatageCategory(models.Model):
         primary_key=True,
     )
 
-    advantage_category_cs = models.CharField(max_length=35, verbose_name=_("Advantage category (cs)"))
-    advantage_category_en = models.CharField(max_length=35, null=True, blank=True, verbose_name=_("Advantage category (en)"))
+    advantage_category_cs = models.CharField(
+        max_length=35, verbose_name=_("Advantage category (cs)")
+    )
+    advantage_category_en = models.CharField(
+        max_length=35, null=True, blank=True, verbose_name=_("Advantage category (en)")
+    )
 
     def __str__(self):
         return self.advantage_category_cs
@@ -132,9 +132,12 @@ class Advantage(models.Model):
     )
 
     advantage_cs = models.CharField(max_length=35, verbose_name=_("Advantage (cs)"))
-    advantage_en = models.CharField(max_length=35, null=True, blank=True, verbose_name=_("Advantage (en)"))
-    advantage_category = models.ForeignKey(AdvatageCategory, on_delete=models.CASCADE, verbose_name=_("Advantage category"))
-
+    advantage_en = models.CharField(
+        max_length=35, null=True, blank=True, verbose_name=_("Advantage (en)")
+    )
+    advantage_category = models.ForeignKey(
+        AdvatageCategory, on_delete=models.CASCADE, verbose_name=_("Advantage category")
+    )
 
     def __str__(self):
         return self.advantage_cs
@@ -142,6 +145,7 @@ class Advantage(models.Model):
     class Meta:
         verbose_name = _("Advantage")
         verbose_name_plural = _("Advantages")
+
 
 class PreDesign(models.Model):
     uuid = models.UUIDField(
@@ -167,7 +171,6 @@ class SDG(models.Model):
     sdg_number = models.PositiveSmallIntegerField()
     sdg_name = models.CharField(max_length=100)
     icon = models.ImageField(null=True, blank=True, upload_to="sdg_icons")
-
 
     def __str__(self):
         return self.sdg_name
@@ -216,42 +219,40 @@ class Measure(models.Model):
         primary_key=True,
     )
 
-
-
     # base information
-    name_cs = models.CharField(
-        max_length=100,
-        verbose_name=_("Measure name (cs)")
-    )
+    name_cs = models.CharField(max_length=100, verbose_name=_("Measure name (cs)"))
 
     name_en = models.CharField(
         max_length=100,
         verbose_name=_("Measure name (en)"),
-        null=True, blank=True,
+        null=True,
+        blank=True,
     )
 
     group = models.ForeignKey(
-        MeasureGroup,
-        on_delete=models.CASCADE,
-        verbose_name=_("Measure group")
+        MeasureGroup, on_delete=models.CASCADE, verbose_name=_("Measure group")
     )
 
-    location_type = models.ManyToManyField(LocationType, verbose_name=_("Location type"))
+    location_type = models.ManyToManyField(
+        LocationType, verbose_name=_("Location type")
+    )
 
     short_description_cs = models.CharField(
-        max_length=255,
-        verbose_name=_("Measure short description (cs)")
+        max_length=255, verbose_name=_("Measure short description (cs)")
     )
 
     short_description_en = models.CharField(
         max_length=255,
         verbose_name=_("Measure short description (en)"),
-        null=True, blank=True,
+        null=True,
+        blank=True,
     )
 
     description_cs = MarkdownxField(_("Measure description (cs)"))
 
-    description_en = MarkdownxField(_("Measure description (en)"), null=True, blank=True)
+    description_en = MarkdownxField(
+        _("Measure description (en)"), null=True, blank=True
+    )
 
     purpose = models.CharField(max_length=255)
 
@@ -262,29 +263,43 @@ class Measure(models.Model):
     air = ScoreField(verbose_name=_("Air"))
     aesthetics = ScoreField(verbose_name=_("Aesthetics"))
 
-    main_advantage = models.ManyToManyField(Advantage, verbose_name=_("Main advantage"), related_name="main_advantage")
-    advantage = models.ManyToManyField(Advantage, verbose_name=_("Advantage"), related_name="advantage")
+    main_advantage = models.ManyToManyField(
+        Advantage, verbose_name=_("Main advantage"), related_name="main_advantage"
+    )
+    advantage = models.ManyToManyField(
+        Advantage, verbose_name=_("Advantage"), related_name="advantage"
+    )
 
     limitation = models.ManyToManyField(Limitation, verbose_name=_("Limitation"))
 
-
-
-    complexity_of_realization = models.CharField(max_length=1, choices=LMHChoices, verbose_name=_("Complexity of realization"))
-    budget_choices = models.CharField(max_length=1, choices=LMHChoices, verbose_name=_("Budget"))
+    complexity_of_realization = models.CharField(
+        max_length=1, choices=LMHChoices, verbose_name=_("Complexity of realization")
+    )
+    budget_choices = models.CharField(
+        max_length=1, choices=LMHChoices, verbose_name=_("Budget")
+    )
 
     price = models.PositiveIntegerField(null=True, blank=True, verbose_name=_("Price"))
     units = models.CharField(max_length=10, verbose_name=_("Units"))
 
-    time_horizon = models.CharField(max_length=1, choices=LMHChoices, verbose_name=_("Time horizon"))
-    measure_size = models.CharField(max_length=1, choices=SizeChoices, verbose_name=_("Measure size"))
+    time_horizon = models.CharField(
+        max_length=1, choices=LMHChoices, verbose_name=_("Time horizon")
+    )
+    measure_size = models.CharField(
+        max_length=1, choices=SizeChoices, verbose_name=_("Measure size")
+    )
 
     diy = models.BooleanField(default=False, verbose_name=_("DIY"))
 
-    combine = models.ManyToManyField("Measure", verbose_name=_("Related measures"), related_name="related_measures", blank=True,)
+    combine = models.ManyToManyField(
+        "Measure",
+        verbose_name=_("Related measures"),
+        related_name="related_measures",
+        blank=True,
+    )
 
     sdg = models.ManyToManyField(SDG)
     law = models.ManyToManyField(Law)
-
 
     def __str__(self):
         return self.name_cs
@@ -292,6 +307,7 @@ class Measure(models.Model):
     class Meta:
         verbose_name = _("Measure")
         verbose_name_plural = _("Measures")
+
 
 class Performance(models.Model):
     uuid = models.UUIDField(
@@ -307,4 +323,3 @@ class Performance(models.Model):
         on_delete=models.CASCADE,
     )
     performance = models.CharField(max_length=100, verbose_name=_("Performance"))
-
