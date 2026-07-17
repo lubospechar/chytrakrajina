@@ -14,7 +14,6 @@ class MeasureGroup(models.Model):
         primary_key=True,
     )
 
-    old_pk = models.PositiveIntegerField(unique=True, verbose_name=_("Old primary key"))
 
     name_cs = models.CharField(
         max_length=100,
@@ -61,10 +60,6 @@ class LocationType(models.Model):
         primary_key=True,
     )
 
-    old_pk = models.PositiveIntegerField(
-        unique=True,
-        verbose_name=_("Old primary key"),
-    )
 
     location_type_cs = models.CharField(
         max_length=20,
@@ -94,7 +89,7 @@ class Limitation(models.Model):
         verbose_name=_("UUID"),
         primary_key=True,
     )
-    old_pk = models.PositiveIntegerField(unique=True, verbose_name=_("Old primary key"))
+
     limitation_cs = models.CharField(max_length=35, verbose_name=_("Limitation (cs)"))
     limitation_en = models.CharField(max_length=35, null=True, blank=True, verbose_name=_("Limitation (en)"))
 
@@ -115,7 +110,7 @@ class AdvatageCategory(models.Model):
         verbose_name=_("UUID"),
         primary_key=True,
     )
-    old_pk = models.PositiveIntegerField(unique=True, verbose_name=_("Old primary key"))
+
     advantage_category_cs = models.CharField(max_length=35, verbose_name=_("Advantage category (cs)"))
     advantage_category_en = models.CharField(max_length=35, null=True, blank=True, verbose_name=_("Advantage category (en)"))
 
@@ -135,7 +130,7 @@ class Advantage(models.Model):
         verbose_name=_("UUID"),
         primary_key=True,
     )
-    old_pk = models.PositiveIntegerField(unique=True, verbose_name=_("Old primary key"))
+
     advantage_cs = models.CharField(max_length=35, verbose_name=_("Advantage (cs)"))
     advantage_en = models.CharField(max_length=35, null=True, blank=True, verbose_name=_("Advantage (en)"))
     advantage_category = models.ForeignKey(AdvatageCategory, on_delete=models.CASCADE, verbose_name=_("Advantage category"))
@@ -156,7 +151,7 @@ class PreDesign(models.Model):
         verbose_name=_("UUID"),
         primary_key=True,
     )
-    old_pk = models.PositiveIntegerField(unique=True, verbose_name=_("Old primary key"))
+
     prereqisite = models.CharField(max_length=255, verbose_name=_("Prerequisite"))
 
 
@@ -168,7 +163,7 @@ class SDG(models.Model):
         verbose_name=_("UUID"),
         primary_key=True,
     )
-    old_pk = models.PositiveIntegerField(unique=True, verbose_name=_("Old primary key"))
+
     sdg_number = models.PositiveSmallIntegerField()
     sdg_name = models.CharField(max_length=100)
     icon = models.ImageField(null=True, blank=True, upload_to="sdg_icons")
@@ -190,7 +185,7 @@ class Law(models.Model):
         verbose_name=_("UUID"),
         primary_key=True,
     )
-    old_pk = models.PositiveIntegerField(unique=True, verbose_name=_("Old primary key"))
+
     description = models.CharField(max_length=100)
     url = models.URLField()
 
@@ -220,7 +215,7 @@ class Measure(models.Model):
         verbose_name=_("UUID"),
         primary_key=True,
     )
-    old_pk = models.PositiveIntegerField(unique=True, verbose_name=_("Old primary key"))
+
 
 
     # base information
@@ -306,7 +301,7 @@ class Performance(models.Model):
         verbose_name=_("UUID"),
         primary_key=True,
     )
-    old_pk = models.PositiveIntegerField(unique=True, verbose_name=_("Old primary key"))
+
     measure = models.ForeignKey(
         Measure,
         on_delete=models.CASCADE,
