@@ -195,6 +195,17 @@ class Advantage(models.Model):
         verbose_name = _("Advantage")
         verbose_name_plural = _("Advantages")
 
+class TempPreDesign(models.Model):
+    uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        unique=True,
+        verbose_name=_("UUID"),
+        primary_key=True,
+    )
+    old_pk = models.PositiveIntegerField(unique=True, verbose_name=_("Old primary key"))
+    prereqisite = models.CharField(max_length=255, verbose_name=_("Prerequisite"))
+
 class PreDesign(models.Model):  # predprojektova priprava
     prereqisite = models.CharField(max_length=255)
 
