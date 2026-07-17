@@ -432,6 +432,20 @@ class Measure(models.Model):
         verbose_name = _("Measure")
         verbose_name_plural = _("Measures")
 
+class TempPerformance(models.Model):
+    uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        unique=True,
+        verbose_name=_("UUID"),
+        primary_key=True,
+    )
+    old_pk = models.PositiveIntegerField(unique=True, verbose_name=_("Old primary key"))
+    measure = models.ForeignKey(
+        TempMeasure,
+        on_delete=models.CASCADE,
+    )
+    performance = models.CharField(max_length=100, verbose_name=_("Performance"))
 
 class Performance(models.Model):  # kvantitativni parametry
     measure = models.ForeignKey(Measure, on_delete=models.CASCADE)
