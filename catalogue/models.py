@@ -235,6 +235,18 @@ class SDG(models.Model):
         verbose_name_plural = _("Sustainable Development Goals")
 
 
+class TempLaw(models.Model):
+    uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        unique=True,
+        verbose_name=_("UUID"),
+        primary_key=True,
+    )
+    old_pk = models.PositiveIntegerField(unique=True, verbose_name=_("Old primary key"))
+    description = models.CharField(max_length=100)
+    url = models.URLField()
+
 class Law(models.Model):
     description = models.CharField(max_length=100)
     url = models.URLField()
