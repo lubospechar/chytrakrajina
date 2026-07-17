@@ -39,7 +39,7 @@ class MeasureGroup(models.Model):
     )
 
     icon = models.ImageField(
-        upload_to="temp_measure_groups",
+        upload_to="measure_groups",
         verbose_name=_("Measure group icon")
     )
 
