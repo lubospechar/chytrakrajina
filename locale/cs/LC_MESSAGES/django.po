@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-20 13:38+0200\n"
+"POT-Creation-Date: 2026-07-20 13:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,43 +19,43 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n "
 "<= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
-#: catalogue/admin.py:37
+#: catalogue/admin.py:38
 msgid "Main advantage and advantage cannot contain the same items."
 msgstr "Pole hlavní přínos a přínos nesmí obsahovat stejné hodnoty."
 
-#: catalogue/admin.py:82 catalogue/models.py:268
+#: catalogue/admin.py:86 catalogue/models.py:268
 msgid "Related measure"
 msgstr "Související opatření"
 
-#: catalogue/admin.py:83 catalogue/models.py:402
+#: catalogue/admin.py:87 catalogue/models.py:404
 msgid "Related measures"
 msgstr "Související opatření"
 
-#: catalogue/admin.py:95
+#: catalogue/admin.py:99
 msgid "Base information (cs)"
 msgstr "Základní informace (cs)"
 
-#: catalogue/admin.py:96
+#: catalogue/admin.py:100
 msgid "Base information (en)"
 msgstr "Základní informace (en)"
 
-#: catalogue/admin.py:97
+#: catalogue/admin.py:101
 msgid "Base information"
 msgstr "Základní informace"
 
-#: catalogue/admin.py:98
+#: catalogue/admin.py:102
 msgid "Scores"
 msgstr "Skore"
 
-#: catalogue/admin.py:99
+#: catalogue/admin.py:103
 msgid "Additional parameters"
 msgstr "Další parametry"
 
-#: catalogue/admin.py:105
+#: catalogue/admin.py:109
 msgid "Key parameters"
 msgstr "Klíčové parametry"
 
-#: catalogue/admin.py:106 catalogue/models.py:205
+#: catalogue/admin.py:110 catalogue/models.py:205
 msgid "Legislation"
 msgstr "Legislativní rámec"
 
@@ -78,7 +78,7 @@ msgstr "Skore musí být maximálně 5"
 #: catalogue/models.py:16 catalogue/models.py:58 catalogue/models.py:87
 #: catalogue/models.py:109 catalogue/models.py:133 catalogue/models.py:158
 #: catalogue/models.py:170 catalogue/models.py:191 catalogue/models.py:214
-#: catalogue/models.py:236 catalogue/models.py:308 catalogue/models.py:429
+#: catalogue/models.py:236 catalogue/models.py:308 catalogue/models.py:431
 msgid "UUID"
 msgstr "UUID"
 
@@ -106,7 +106,7 @@ msgstr "Ikona skupiny opatření"
 msgid "Measure group"
 msgstr "Skupina opatření"
 
-#: catalogue/models.py:50 catalogue/models.py:322 catalogue/models.py:415
+#: catalogue/models.py:50 catalogue/models.py:322 catalogue/models.py:417
 msgid "Measure groups"
 msgstr "Skupiny opatření"
 
@@ -187,16 +187,12 @@ msgid "Sustainable Development Goals"
 msgstr "Cíle udržitelného rozvoje"
 
 #: catalogue/models.py:195 catalogue/models.py:218
-#, fuzzy
-#| msgid "Description"
 msgid "Description (cs)"
-msgstr "Popis"
+msgstr "Popis (cs)"
 
 #: catalogue/models.py:197 catalogue/models.py:220
-#, fuzzy
-#| msgid "Description"
 msgid "Description (en)"
-msgstr "Popis"
+msgstr "Popis (en)"
 
 #: catalogue/models.py:206
 msgid "Legislations"
@@ -238,7 +234,7 @@ msgstr "kompatibilní"
 msgid "requires"
 msgstr "podmiňující"
 
-#: catalogue/models.py:262 catalogue/models.py:418
+#: catalogue/models.py:262 catalogue/models.py:420
 msgid "Measure"
 msgstr "Opatření"
 
@@ -363,30 +359,34 @@ msgid "Budget"
 msgstr "Náklady na realizaci"
 
 #: catalogue/models.py:385
+msgid "Funding opportunity"
+msgstr "Dotační možnost"
+
+#: catalogue/models.py:387
 msgid "Price"
 msgstr "Cena"
 
-#: catalogue/models.py:386
+#: catalogue/models.py:388
 msgid "Units"
 msgstr "Jednotky"
 
-#: catalogue/models.py:389
+#: catalogue/models.py:391
 msgid "Time horizon"
 msgstr "Časový horizont"
 
-#: catalogue/models.py:392
+#: catalogue/models.py:394
 msgid "Measure size"
 msgstr "Prostorový typ opaření"
 
-#: catalogue/models.py:395
+#: catalogue/models.py:397
 msgid "DIY"
 msgstr "Svépomocná realizace"
 
-#: catalogue/models.py:419
+#: catalogue/models.py:421
 msgid "Measures"
 msgstr "Opatření"
 
-#: catalogue/models.py:437
+#: catalogue/models.py:439
 msgid "Performance"
 msgstr ""
 
