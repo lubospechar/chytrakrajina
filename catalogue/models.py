@@ -192,8 +192,10 @@ class Law(models.Model):
         primary_key=True,
     )
 
-    description_cs = models.CharField(max_length=100)
-    description_en = models.CharField(max_length=100, null=True, blank=True)
+    description_cs = models.CharField(max_length=100, verbose_name=_("Description (cs)"))
+    description_en = models.CharField(
+        max_length=100, null=True, blank=True, verbose_name=_("Description (en)")
+    )
     url = models.URLField()
 
     def __str__(self):
@@ -203,6 +205,28 @@ class Law(models.Model):
         verbose_name = _("Legislation")
         verbose_name_plural = _("Legislations")
 
+
+class FundingOpportunity(models.Model):
+    uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        unique=True,
+        verbose_name=_("UUID"),
+        primary_key=True,
+    )
+
+    description_cs = models.CharField(max_length=100, verbose_name=_("Description (cs)"))
+    description_en = models.CharField(
+        max_length=100, null=True, blank=True, verbose_name=_("Description (en)")
+    )
+    url = models.URLField()
+
+    def __str__(self):
+        return self.description_cs
+
+    class Meta:
+        verbose_name = _("Founding opportunity")
+        verbose_name_plural = _("Founding opportunities")
 
 class MainProblems(models.Model):
     uuid = models.UUIDField(

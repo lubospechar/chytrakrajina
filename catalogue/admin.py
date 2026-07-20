@@ -13,7 +13,8 @@ from catalogue.models import (
     SDG,
     Law,
     MainProblems,
-    MeasureCombination
+    MeasureCombination,
+    FundingOpportunity
 )
 
 class MeasureAdminForm(forms.ModelForm):
@@ -73,6 +74,9 @@ class MainProblemsAdmin(admin.ModelAdmin):
     list_display = ("problem_cs",)
     ordering = ("problem_cs",)
 
+@admin.register(FundingOpportunity)
+class FundingOpportunityAdmin(admin.ModelAdmin):
+    list_display = ("description_cs", "description_en", "url")
 
 class MeasureCombinationInline(admin.TabularInline):
     model = MeasureCombination
