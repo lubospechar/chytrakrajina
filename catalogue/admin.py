@@ -45,7 +45,7 @@ class SDGAdmin(admin.ModelAdmin):
 
 @admin.register(Law)
 class LawAdmin(admin.ModelAdmin):
-    list_display = ("description", "url")
+    list_display = ("description_cs", "description_en", "url")
 
 @admin.register(Limitation)
 class LimitationAdmin(admin.ModelAdmin):

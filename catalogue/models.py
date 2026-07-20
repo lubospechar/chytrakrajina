@@ -192,11 +192,12 @@ class Law(models.Model):
         primary_key=True,
     )
 
-    description = models.CharField(max_length=100)
+    description_cs = models.CharField(max_length=100)
+    description_en = models.CharField(max_length=100, null=True, blank=True)
     url = models.URLField()
 
     def __str__(self):
-        return self.description
+        return self.description_cs
 
     class Meta:
         verbose_name = _("Legislation")
