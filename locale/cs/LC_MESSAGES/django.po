@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-20 12:03+0200\n"
+"POT-Creation-Date: 2026-07-20 12:27+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -74,7 +74,7 @@ msgstr "Skore musí být maximálně 5"
 #: catalogue/models.py:15 catalogue/models.py:57 catalogue/models.py:86
 #: catalogue/models.py:108 catalogue/models.py:132 catalogue/models.py:157
 #: catalogue/models.py:169 catalogue/models.py:190 catalogue/models.py:210
-#: catalogue/models.py:247 catalogue/models.py:358
+#: catalogue/models.py:247 catalogue/models.py:363
 msgid "UUID"
 msgstr "UUID"
 
@@ -102,7 +102,7 @@ msgstr "Ikona skupiny opatření"
 msgid "Measure group"
 msgstr "Skupina opatření"
 
-#: catalogue/models.py:49 catalogue/models.py:261 catalogue/models.py:346
+#: catalogue/models.py:49 catalogue/models.py:261 catalogue/models.py:351
 msgid "Measure groups"
 msgstr "Skupiny opatření"
 
@@ -130,7 +130,7 @@ msgstr "Omezení aplikace (cs)"
 msgid "Limitation (en)"
 msgstr "Omezení aplikace (en)"
 
-#: catalogue/models.py:99 catalogue/models.py:310
+#: catalogue/models.py:99 catalogue/models.py:315
 msgid "Limitation"
 msgstr "Omezení aplikace"
 
@@ -164,7 +164,7 @@ msgstr "Přínosy (cs)"
 msgid "Advantage (en)"
 msgstr "Přínos (cs)"
 
-#: catalogue/models.py:148 catalogue/models.py:298
+#: catalogue/models.py:148 catalogue/models.py:303
 msgid "Advantage"
 msgstr "Přínos"
 
@@ -200,7 +200,7 @@ msgstr "Problém (en)"
 msgid "Main problem"
 msgstr "Hlavní problém"
 
-#: catalogue/models.py:224 catalogue/models.py:308
+#: catalogue/models.py:224 catalogue/models.py:313
 msgid "Main problems"
 msgstr "Hlavní problémy"
 
@@ -268,75 +268,83 @@ msgstr "Popis opatření (cs)"
 msgid "Measure description (en)"
 msgstr "Popis opatření (en)"
 
-#: catalogue/models.py:288
+#: catalogue/models.py:285
+msgid "When and why to use (cs)"
+msgstr "Kdy a proč použít (cs)"
+
+#: catalogue/models.py:287
+msgid "When and why to use (en)"
+msgstr "Kdy a poroč použít (en)"
+
+#: catalogue/models.py:293
 msgid "Temperature"
 msgstr "Teplota"
 
-#: catalogue/models.py:289
+#: catalogue/models.py:294
 msgid "Water"
 msgstr "Voda"
 
-#: catalogue/models.py:290
+#: catalogue/models.py:295
 msgid "Biodiversity"
 msgstr "Biodiverzita"
 
-#: catalogue/models.py:291
+#: catalogue/models.py:296
 msgid "Air"
 msgstr "Vzduch"
 
-#: catalogue/models.py:292
+#: catalogue/models.py:297
 msgid "Aesthetics"
 msgstr "Estetika"
 
-#: catalogue/models.py:295
+#: catalogue/models.py:300
 msgid "Main advantage"
 msgstr "Hlavní přínos"
 
-#: catalogue/models.py:305
+#: catalogue/models.py:310
 msgid "Municipality size"
 msgstr "Velikost podle počtu obyvatel obce"
 
-#: catalogue/models.py:313
+#: catalogue/models.py:318
 msgid "Complexity of realization"
 msgstr "Náročnost realizace"
 
-#: catalogue/models.py:316
+#: catalogue/models.py:321
 msgid "Budget"
 msgstr "Náklady na realizaci"
 
-#: catalogue/models.py:319
+#: catalogue/models.py:324
 msgid "Price"
 msgstr "Cena"
 
-#: catalogue/models.py:320
+#: catalogue/models.py:325
 msgid "Units"
 msgstr "Jednotky"
 
-#: catalogue/models.py:323
+#: catalogue/models.py:328
 msgid "Time horizon"
 msgstr "Časový horizont"
 
-#: catalogue/models.py:326
+#: catalogue/models.py:331
 msgid "Measure size"
 msgstr "Prostorový typ opaření"
 
-#: catalogue/models.py:329
+#: catalogue/models.py:334
 msgid "DIY"
 msgstr "Svépomocná realizace"
 
-#: catalogue/models.py:333
+#: catalogue/models.py:338
 msgid "Related measures"
 msgstr "Související opatření"
 
-#: catalogue/models.py:349
+#: catalogue/models.py:354
 msgid "Measure"
 msgstr "Opatření"
 
-#: catalogue/models.py:350
+#: catalogue/models.py:355
 msgid "Measures"
 msgstr "Opatření"
 
-#: catalogue/models.py:366
+#: catalogue/models.py:371
 msgid "Performance"
 msgstr ""
 

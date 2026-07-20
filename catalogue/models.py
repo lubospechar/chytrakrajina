@@ -282,6 +282,11 @@ class Measure(models.Model):
         _("Measure description (en)"), null=True, blank=True
     )
 
+    when_and_why_to_use_cs = models.TextField(verbose_name=_("When and why to use (cs)"))
+    when_and_why_to_use_en = models.TextField(
+        verbose_name=_("When and why to use (en)"), null=True, blank=True
+    )
+
     purpose = models.CharField(max_length=255)
 
     # score

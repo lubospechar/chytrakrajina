@@ -82,8 +82,8 @@ class MeasureAdmin(admin.ModelAdmin):
     ordering = ("name_cs",)
     fieldsets = (
         (None, {"fields": ("groups",)}),
-        (_("Base information (cs)"), {"fields": ("name_cs", "short_description_cs", "description_cs",)}),
-        (_("Base information (en)"), {"fields": ("name_en","short_description_en","description_en",)}),
+        (_("Base information (cs)"), {"fields": ("name_cs", "short_description_cs", "description_cs", "when_and_why_to_use_cs",)}),
+        (_("Base information (en)"), {"fields": ("name_en","short_description_en","description_en", "when_and_why_to_use_en",)}),
         (_("Base information"), {"fields": ("municipality_size", "main_problems")}),
         (_("Scores"), {"fields": ("aesthetics", "air", "biodiversity", "temperature", "water")}),
         (_("Additional parameters"), {"fields":  (
