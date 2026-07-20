@@ -229,9 +229,8 @@ class Measure(models.Model):
         blank=True,
     )
 
-    group = models.ForeignKey(
-        MeasureGroup, on_delete=models.CASCADE, verbose_name=_("Measure group")
-    )
+    groups = models.ManyToManyField(MeasureGroup, verbose_name=_("Measure groups"), related_name="measures")
+
 
     location_type = models.ManyToManyField(
         LocationType, verbose_name=_("Location type")
@@ -303,6 +302,10 @@ class Measure(models.Model):
 
     def __str__(self):
         return self.name_cs
+
+    def display_groups(self):
+        return ", ".join(self.groups.values_list("name_cs", flat=True))
+    display_groups.short_description = _("Measure groups")
 
     class Meta:
         verbose_name = _("Measure")

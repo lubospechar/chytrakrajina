@@ -69,12 +69,12 @@ class MeasureGroupAdmin(admin.ModelAdmin):
 @admin.register(Measure)
 class MeasureAdmin(admin.ModelAdmin):
     form = MeasureAdminForm
-    list_display = ("name_cs", "short_description_cs", 'group')
-    list_filter = ("group",)
+    list_display = ("name_cs", "short_description_cs", 'display_groups')
+    list_filter = ("groups",)
     search_fields = ("name_cs", "short_description_cs")
     ordering = ("name_cs",)
     fieldsets = (
-        (None, {"fields": ("group",)}),
+        (None, {"fields": ("groups",)}),
         (_("Base information (cs)"),
             {"fields": (
                 "name_cs",
