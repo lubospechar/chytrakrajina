@@ -382,6 +382,8 @@ class Measure(models.Model):
         max_length=1, choices=LMHChoices, verbose_name=_("Budget")
     )
 
+    funding_opportunity = models.ManyToManyField(FundingOpportunity, verbose_name=_("Funding opportunity"), related_name="funding_opportunity")
+
     price = models.PositiveIntegerField(null=True, blank=True, verbose_name=_("Price"))
     units = models.CharField(max_length=10, verbose_name=_("Units"))
 
