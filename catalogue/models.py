@@ -54,7 +54,7 @@ class MeasureGroup(models.Model):
             return self.description_en
 
     def __str__(self):
-        self.name()
+        return self.name()
 
     class Meta:
         verbose_name = _("Measure group")
