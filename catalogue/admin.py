@@ -13,6 +13,7 @@ from catalogue.models import (
     SDG,
     Law,
     MainProblems,
+    MeasureCombination
 )
 
 class MeasureAdminForm(forms.ModelForm):
@@ -73,6 +74,14 @@ class MainProblemsAdmin(admin.ModelAdmin):
     ordering = ("problem_cs",)
 
 
+class MeasureCombinationInline(admin.TabularInline):
+    model = MeasureCombination
+    fk_name = "from_measure"
+    extra = 1
+    autocomplete_fields = ("to_measure",)
+    verbose_name = _("Related measure")
+    verbose_name_plural = _("Related measures")
+
 @admin.register(Measure)
 class MeasureAdmin(admin.ModelAdmin):
     form = MeasureAdminForm
@@ -80,6 +89,7 @@ class MeasureAdmin(admin.ModelAdmin):
     list_filter = ("groups",)
     search_fields = ("name_cs", "short_description_cs")
     ordering = ("name_cs",)
+    inlines = [MeasureCombinationInline]
     fieldsets = (
         (None, {"fields": ("groups",)}),
         (_("Base information (cs)"), {"fields": ("name_cs", "short_description_cs", "description_cs", "when_and_why_to_use_cs",)}),
@@ -94,5 +104,4 @@ class MeasureAdmin(admin.ModelAdmin):
         )}),
         (_("Key parameters"), {"fields": ("complexity_of_realization", "budget_choices", "price", "units", "time_horizon", "diy", "measure_size",)}),
         (_("Legislation"), {"fields": ("law", "sdg",)}),
-        (_("Other"), {"fields": ("combine",)}),
     )

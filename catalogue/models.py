@@ -1,5 +1,6 @@
 import uuid
 
+from django import forms
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
 from django.utils.translation import gettext_lazy as _
@@ -223,6 +224,41 @@ class MainProblems(models.Model):
         verbose_name = _("Main problem")
         verbose_name_plural = _("Main problems")
 
+class MeasureCombination(models.Model):
+    from_measure = models.ForeignKey(
+        "Measure",
+        on_delete=models.CASCADE,
+        related_name="combination_from",
+        verbose_name=_("Measure"),
+    )
+    to_measure = models.ForeignKey(
+        "Measure",
+        on_delete=models.CASCADE,
+        related_name="combination_to",
+        verbose_name=_("Related measure"),
+    )
+
+    description_cs = models.CharField(
+        verbose_name=_("Combination description (cs)")
+    )
+    description_en = models.CharField(
+        verbose_name=_("Combination description (en)"), blank=True, null=True
+    )
+
+    def __str__(self):
+        return f"{self.from_measure} \u2192 {self.to_measure}"
+
+    class Meta:
+        verbose_name = _("Measure combination")
+        verbose_name_plural = _("Measure combinations")
+        constraints = [
+            models.UniqueConstraint(
+                fields=["from_measure", "to_measure"],
+                name="unique_measure_combination",
+            )
+        ]
+
+
 class Measure(models.Model):
     class LMHChoices(models.TextChoices):
         LOW = "L", _("Low")
@@ -335,6 +371,9 @@ class Measure(models.Model):
 
     combine = models.ManyToManyField(
         "Measure",
+        through="MeasureCombination",
+        through_fields=("from_measure", "to_measure"),
+        symmetrical=False,
         verbose_name=_("Related measures"),
         related_name="related_measures",
         blank=True,
@@ -353,6 +392,8 @@ class Measure(models.Model):
     class Meta:
         verbose_name = _("Measure")
         verbose_name_plural = _("Measures")
+
+
 
 
 class Performance(models.Model):
