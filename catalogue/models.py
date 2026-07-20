@@ -41,11 +41,20 @@ class MeasureGroup(models.Model):
         upload_to="measure_groups", verbose_name=_("Measure group icon")
     )
 
-    def __str__(self):
-        lang = get_language()
-        if lang == "en":
+    def name(self):
+        if get_language() == "cs":
+            return self.name_cs
+        else:
             return self.name_en
-        return self.name_cs
+
+    def description(self):
+        if get_language() == "cs":
+            return self.description_cs
+        else:
+            return self.description_en
+
+    def __str__(self):
+        self.name()
 
     class Meta:
         verbose_name = _("Measure group")
