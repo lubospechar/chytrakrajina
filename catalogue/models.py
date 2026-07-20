@@ -1,7 +1,9 @@
 import uuid
+
 from django.db import models
+from django.contrib.postgres.fields import ArrayField
 from django.utils.translation import gettext_lazy as _
-from catalogue.fields import ScoreField
+from catalogue.fields import ScoreField, ChoiceArrayField
 from markdownx.models import MarkdownxField
 
 
@@ -211,6 +213,12 @@ class Measure(models.Model):
         LINE = "L", _("Line")
         AREA = "A", _("Area")
 
+    class MunicipalitySizeChoices(models.TextChoices):
+        UP_TO_2000 = "S", _("< 2,000 inhabitants")
+        FROM_2000_TO_10000 = "M", _("2,000 – 10,000 inhabitants")
+        FROM_10000_TO_50000 = "L", _("10,000 – 50,000 inhabitants")
+        OVER_50000 = "XL", _("> 50,000 inhabitants")
+
     uuid = models.UUIDField(
         default=uuid.uuid4,
         editable=False,
@@ -267,6 +275,13 @@ class Measure(models.Model):
     )
     advantage = models.ManyToManyField(
         Advantage, verbose_name=_("Advantage"), related_name="advantage"
+    )
+
+    municipality_size = ChoiceArrayField(
+        models.CharField(max_length=2, choices=MunicipalitySizeChoices),
+        default=list,
+        blank=True,
+        verbose_name=_("Municipality size"),
     )
 
     limitation = models.ManyToManyField(Limitation, verbose_name=_("Limitation"))

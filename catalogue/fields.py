@@ -1,3 +1,5 @@
+from django import forms
+from django.contrib.postgres.fields import ArrayField
 from django.core import validators
 from django.db import models
 from django.utils.translation import gettext_lazy as _
@@ -16,3 +18,20 @@ class ScoreField(models.PositiveSmallIntegerField):
             message=_("Score must be at most 5."),
         ),
     ]
+
+class ChoiceArrayField(ArrayField):
+    """
+    ArrayField whose formfield is a MultipleChoiceField (SelectMultiple),
+    as long as the base_field defines choices.
+    """
+
+    def formfield(self, **kwargs):
+        defaults = {
+            "form_class": forms.MultipleChoiceField,
+            "choices": self.base_field.choices,
+        }
+        defaults.update(kwargs)
+
+        # ArrayField.formfield would otherwise override "form_class",
+        # so we call Field.formfield directly (bypassing ArrayField.formfield).
+        return super(ArrayField, self).formfield(**defaults)
