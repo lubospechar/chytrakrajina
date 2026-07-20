@@ -106,6 +106,6 @@ class MeasureAdmin(admin.ModelAdmin):
             "advantage",
             "limitation",
         )}),
-        (_("Key parameters"), {"fields": ("complexity_of_realization", "budget_choices", "price", "units", "time_horizon", "diy", "measure_size",)}),
+        (_("Key parameters"), {"fields": ("complexity_of_realization", "budget_choices", "price", "units", "time_horizon", "diy", "measure_size", "funding_opportunity")}),
         (_("Legislation"), {"fields": ("law", "sdg",)}),
     )
