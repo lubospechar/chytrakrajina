@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-20 13:48+0200\n"
+"POT-Creation-Date: 2026-07-20 14:00+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -390,13 +390,17 @@ msgstr "Opatření"
 msgid "Performance"
 msgstr ""
 
-#: chytrakrajina/settings.py:96
+#: chytrakrajina/settings.py:98
 msgid "Czech"
 msgstr "Čeština"
 
-#: chytrakrajina/settings.py:97
+#: chytrakrajina/settings.py:99
 msgid "English"
 msgstr "Angličtina"
+
+#: chytrakrajina/settings.py:125
+msgid "Public RestAPI"
+msgstr "Veřejné RestAPI"
 
 #: chytrakrajina/urls.py:26
 msgid "Správa databáze katalogu Chytrá krajina"

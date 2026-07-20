@@ -1,11 +1,10 @@
 import uuid
 
-from django import forms
 from django.db import models
-from django.contrib.postgres.fields import ArrayField
 from django.utils.translation import gettext_lazy as _
 from catalogue.fields import ScoreField, ChoiceArrayField
 from markdownx.models import MarkdownxField
+from django.utils.translation import get_language
 
 
 class MeasureGroup(models.Model):
@@ -43,6 +42,9 @@ class MeasureGroup(models.Model):
     )
 
     def __str__(self):
+        lang = get_language()
+        if lang == "en":
+            return self.name_en
         return self.name_cs
 
     class Meta:

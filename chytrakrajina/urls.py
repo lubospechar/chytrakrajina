@@ -18,9 +18,40 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.utils.translation import gettext_lazy as _
+
+from drf_spectacular.views import (
+    SpectacularAPIView,
+    SpectacularRedocView,
+    SpectacularSwaggerView,
+)
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("markdownx/", include("markdownx.urls")),
+    path(
+        "api/v1/",
+        include("catalogue.api.urls"),
+    ),
+
+    path(
+        "api/schema/",
+        SpectacularAPIView.as_view(),
+        name="api-schema",
+    ),
+    path(
+        "api/docs/",
+        SpectacularSwaggerView.as_view(
+            url_name="api-schema"
+        ),
+        name="swagger-ui",
+    ),
+    path(
+        "api/redoc/",
+        SpectacularRedocView.as_view(
+            url_name="api-schema"
+        ),
+        name="redoc",
+    ),
 ]
 
 admin.site.site_header = _("Správa databáze katalogu Chytrá krajina")
