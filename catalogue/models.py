@@ -225,6 +225,11 @@ class MainProblems(models.Model):
         verbose_name_plural = _("Main problems")
 
 class MeasureCombination(models.Model):
+    class DescriptionChoices(models.TextChoices):
+        SIMILAR = "similar", _("similar to")
+        COMPATIBILE = "compatible", _("compatibile with")
+        REQUIRES = "requires", _("requires")
+
     from_measure = models.ForeignKey(
         "Measure",
         on_delete=models.CASCADE,
@@ -238,12 +243,7 @@ class MeasureCombination(models.Model):
         verbose_name=_("Related measure"),
     )
 
-    description_cs = models.CharField(
-        verbose_name=_("Combination description (cs)")
-    )
-    description_en = models.CharField(
-        verbose_name=_("Combination description (en)"), blank=True, null=True
-    )
+    description = models.CharField(max_length=10, choices=DescriptionChoices, verbose_name=_("Description"), null=True, blank=True)
 
     def __str__(self):
         return f"{self.from_measure} \u2192 {self.to_measure}"

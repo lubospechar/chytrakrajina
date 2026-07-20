@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-20 13:00+0200\n"
+"POT-Creation-Date: 2026-07-20 13:26+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Main advantage and advantage cannot contain the same items."
 msgstr "Pole hlavní přínos a přínos nesmí obsahovat stejné hodnoty."
 
-#: catalogue/admin.py:82 catalogue/models.py:238
+#: catalogue/admin.py:82 catalogue/models.py:243
 msgid "Related measure"
 msgstr "Související opatření"
 
@@ -206,17 +206,25 @@ msgstr "Hlavní problém"
 msgid "Main problems"
 msgstr "Hlavní problémy"
 
-#: catalogue/models.py:232 catalogue/models.py:393
+#: catalogue/models.py:229
+msgid "similar to"
+msgstr "podobná"
+
+#: catalogue/models.py:230
+msgid "compatibile with"
+msgstr "kompatibilní"
+
+#: catalogue/models.py:231
+msgid "requires"
+msgstr "podmiňující"
+
+#: catalogue/models.py:237 catalogue/models.py:393
 msgid "Measure"
 msgstr "Opatření"
 
-#: catalogue/models.py:242
-msgid "Combination description (cs)"
-msgstr "Popis proč opatření souvisí (cs)"
-
-#: catalogue/models.py:245
-msgid "Combination description (en)"
-msgstr "Popis proč opatření souvisí (en)"
+#: catalogue/models.py:246
+msgid "Description"
+msgstr "Popis"
 
 #: catalogue/models.py:252
 msgid "Measure combination"
@@ -381,6 +389,12 @@ msgstr "Správa databáze katalogu Chytrá krajina"
 #: chytrakrajina/urls.py:28
 msgid "Administrace katalogu"
 msgstr "Správa databáze katalogu Chytrá krajina"
+
+#~ msgid "Combination description (cs)"
+#~ msgstr "Popis proč opatření souvisí (cs)"
+
+#~ msgid "Combination description (en)"
+#~ msgstr "Popis proč opatření souvisí (en)"
 
 #~ msgid "Other"
 #~ msgstr "Ostatní"
