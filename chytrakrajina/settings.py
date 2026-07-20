@@ -120,11 +120,19 @@ class Base(Configuration):
         "PAGE_SIZE": 20,
     }
 
+
     SPECTACULAR_SETTINGS = {
-        "TITLE": "Chytrá krajina",
-        "DESCRIPTION": _("Public RestAPI"),
+        "TITLE": "Chytrá krajina API",
+        "DESCRIPTION": "REST API projektu Chytrá krajina.",
         "VERSION": "1.0.0",
         "SERVE_INCLUDE_SCHEMA": False,
+
+        "SERVE_PERMISSIONS": [
+            "rest_framework.permissions.IsAuthenticated",
+        ],
+        "SERVE_AUTHENTICATION": [
+            "rest_framework.authentication.SessionAuthentication",
+        ],
     }
 
 class Local(Base):
