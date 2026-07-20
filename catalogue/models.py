@@ -202,6 +202,27 @@ class Law(models.Model):
         verbose_name_plural = _("Legislations")
 
 
+class MainProblems(models.Model):
+    uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        unique=True,
+        verbose_name=_("UUID"),
+        primary_key=True,
+    )
+    problem_cs = models.CharField(max_length=100, verbose_name=_("Problem (cs)"))
+    problem_en = models.CharField(
+        max_length=100, null=True, blank=True, verbose_name=_("Problem (en)")
+    )
+    icon = models.ImageField(null=True, blank=True, upload_to="main_problems")
+
+    def __str__(self):
+        return self.problem_cs
+
+    class Meta:
+        verbose_name = _("Main problem")
+        verbose_name_plural = _("Main problems")
+
 class Measure(models.Model):
     class LMHChoices(models.TextChoices):
         LOW = "L", _("Low")
@@ -283,6 +304,8 @@ class Measure(models.Model):
         blank=True,
         verbose_name=_("Municipality size"),
     )
+
+    main_problems = models.ManyToManyField(MainProblems, verbose_name=_("Main problems"), related_name="main_problems")
 
     limitation = models.ManyToManyField(Limitation, verbose_name=_("Limitation"))
 

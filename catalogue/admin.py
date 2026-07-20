@@ -12,6 +12,7 @@ from catalogue.models import (
     Limitation,
     SDG,
     Law,
+    MainProblems,
 )
 
 class MeasureAdminForm(forms.ModelForm):
@@ -66,6 +67,12 @@ class LocationTypeAdmin(admin.ModelAdmin):
 class MeasureGroupAdmin(admin.ModelAdmin):
     list_display = ("name_cs", "name_en", "description_cs", "description_en")
 
+@admin.register(MainProblems)
+class MainProblemsAdmin(admin.ModelAdmin):
+    list_display = ("problem_cs",)
+    ordering = ("problem_cs",)
+
+
 @admin.register(Measure)
 class MeasureAdmin(admin.ModelAdmin):
     form = MeasureAdminForm
@@ -77,7 +84,7 @@ class MeasureAdmin(admin.ModelAdmin):
         (None, {"fields": ("groups",)}),
         (_("Base information (cs)"), {"fields": ("name_cs", "short_description_cs", "description_cs",)}),
         (_("Base information (en)"), {"fields": ("name_en","short_description_en","description_en",)}),
-        (_("Base information"), {"fields": ("municipality_size",)}),
+        (_("Base information"), {"fields": ("municipality_size", "main_problems")}),
         (_("Scores"), {"fields": ("aesthetics", "air", "biodiversity", "temperature", "water")}),
         (_("Additional parameters"), {"fields":  (
             "location_type",
