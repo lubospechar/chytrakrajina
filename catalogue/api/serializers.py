@@ -12,4 +12,6 @@ class MeasureGroupSerializer(serializers.ModelSerializer):
             "name",
             "description",
             "icon",
+            'created_at',
+            'last_modified',
         )
