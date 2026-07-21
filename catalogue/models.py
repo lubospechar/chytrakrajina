@@ -79,6 +79,9 @@ class MeasureGroup(models.Model):
         else:
             return self.slug_en
 
+    def measure_count(self):
+        return self.measures.count()
+
     def __str__(self):
         return self.name()
 

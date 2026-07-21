@@ -14,4 +14,5 @@ class MeasureGroupSerializer(serializers.ModelSerializer):
             "icon",
             'created_at',
             'last_modified',
+            'measure_count',
         )
