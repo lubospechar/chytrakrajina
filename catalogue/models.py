@@ -1,6 +1,7 @@
 import uuid
 
 from django.db import models
+from django.template.defaultfilters import slugify
 from django.utils.translation import gettext_lazy as _
 from catalogue.fields import ScoreField, ChoiceArrayField
 from markdownx.models import MarkdownxField
@@ -25,6 +26,22 @@ class MeasureGroup(models.Model):
         verbose_name=_("Measure group name (en)"),
         null=True,
         blank=True,
+    )
+
+    slug_cs = models.SlugField(
+        max_length=255,
+        unique=True,
+        null=True,
+        blank=True,
+        verbose_name=_("Measure group slug (cs)"),
+    )
+
+    slug_en = models.SlugField(
+        max_length=255,
+        unique=True,
+        null=True,
+        blank=True,
+        verbose_name=_("Measure group slug (en)"),
     )
 
     description_cs = models.TextField(
@@ -55,6 +72,18 @@ class MeasureGroup(models.Model):
 
     def __str__(self):
         return self.name()
+
+    def save(self, *args, **kwargs):
+        self.slug_cs = self.slug_cs or None
+        self.slug_en = self.slug_en or None
+
+        if not self.slug_cs and self.name_cs:
+            self.slug_cs = slugify(self.name_cs)
+
+        if not self.slug_en and self.name_en:
+            self.slug_en = slugify(self.name_en)
+
+        super().save(*args, **kwargs)
 
     class Meta:
         verbose_name = _("Measure group")

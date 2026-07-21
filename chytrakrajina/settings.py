@@ -21,7 +21,8 @@ class Base(Configuration):
     THIRD_PARTY_APPS = [
         "rest_framework",
         "drf_spectacular",
-        'markdownx',
+        "markdownx",
+        "corsheaders",
     ]
 
     LOCAL_APPS = [
@@ -32,6 +33,7 @@ class Base(Configuration):
 
     MIDDLEWARE = [
         "django.middleware.security.SecurityMiddleware",
+        "corsheaders.middleware.CorsMiddleware",
         "django.contrib.sessions.middleware.SessionMiddleware",
         "django.middleware.locale.LocaleMiddleware",
         "django.middleware.common.CommonMiddleware",
@@ -134,6 +136,18 @@ class Base(Configuration):
             "rest_framework.authentication.SessionAuthentication",
         ],
     }
+
+    CORS_ALLOWED_ORIGINS = [
+        "https://katalog-opatreni.vercel.app",
+        "http://localhost:3000",
+    ]
+
+    CORS_ALLOW_CREDENTIALS = True
+
+    CSRF_TRUSTED_ORIGINS = [
+        "https://katalog-opatreni.vercel.app",
+        "http://localhost:3000",
+    ]
 
 class Local(Base):
     DEBUG = True
