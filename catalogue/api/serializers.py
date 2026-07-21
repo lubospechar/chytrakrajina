@@ -8,6 +8,7 @@ class MeasureGroupSerializer(serializers.ModelSerializer):
         model = MeasureGroup
         fields = (
             "uuid",
+            'slug',
             "name",
             "description",
             "icon",

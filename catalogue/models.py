@@ -17,6 +17,9 @@ class MeasureGroup(models.Model):
         primary_key=True,
     )
 
+    created_at = models.DateTimeField(auto_now_add=True)
+    last_modified = models.DateTimeField(auto_now=True)
+
     name_cs = models.CharField(
         max_length=100, verbose_name=_("Measure group name (cs)")
     )
@@ -69,6 +72,12 @@ class MeasureGroup(models.Model):
             return self.description_cs
         else:
             return self.description_en
+
+    def slug(self):
+        if get_language() == "cs":
+            return self.slug_cs
+        else:
+            return self.slug_en
 
     def __str__(self):
         return self.name()
