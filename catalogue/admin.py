@@ -69,6 +69,10 @@ class LocationTypeAdmin(admin.ModelAdmin):
 class MeasureGroupAdmin(admin.ModelAdmin):
     list_display = ("name_cs", "name_en", "description_cs", "description_en", "ordering")
     list_editable = ("ordering",)
+    prepopulated_fields = {
+        "slug_cs": ("name_cs",),
+        "slug_en": ("name_en",),
+    }
 
 @admin.register(MainProblems)
 class MainProblemsAdmin(admin.ModelAdmin):

@@ -119,6 +119,7 @@ class MeasureGroup(models.Model):
     class Meta:
         verbose_name = _("Measure group")
         verbose_name_plural = _("Measure groups")
+        ordering = ["ordering",]
 
 
 class LocationType(models.Model):
