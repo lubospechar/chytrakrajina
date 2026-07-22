@@ -67,7 +67,8 @@ class LocationTypeAdmin(admin.ModelAdmin):
 
 @admin.register(MeasureGroup)
 class MeasureGroupAdmin(admin.ModelAdmin):
-    list_display = ("name_cs", "name_en", "description_cs", "description_en")
+    list_display = ("name_cs", "name_en", "description_cs", "description_en", "ordering")
+    list_editable = ("ordering",)
 
 @admin.register(MainProblems)
 class MainProblemsAdmin(admin.ModelAdmin):
