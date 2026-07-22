@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-20 14:00+0200\n"
+"POT-Creation-Date: 2026-07-22 10:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,11 +23,11 @@ msgstr ""
 msgid "Main advantage and advantage cannot contain the same items."
 msgstr "Pole hlavní přínos a přínos nesmí obsahovat stejné hodnoty."
 
-#: catalogue/admin.py:86 catalogue/models.py:268
+#: catalogue/admin.py:86 catalogue/models.py:333
 msgid "Related measure"
 msgstr "Související opatření"
 
-#: catalogue/admin.py:87 catalogue/models.py:404
+#: catalogue/admin.py:87 catalogue/models.py:469
 msgid "Related measures"
 msgstr "Související opatření"
 
@@ -55,7 +55,7 @@ msgstr "Další parametry"
 msgid "Key parameters"
 msgstr "Klíčové parametry"
 
-#: catalogue/admin.py:110 catalogue/models.py:205
+#: catalogue/admin.py:110 catalogue/models.py:270
 msgid "Legislation"
 msgstr "Legislativní rámec"
 
@@ -75,344 +75,370 @@ msgstr "Skore musí být minimálně 0"
 msgid "Score must be at most 5."
 msgstr "Skore musí být maximálně 5"
 
-#: catalogue/models.py:16 catalogue/models.py:58 catalogue/models.py:87
-#: catalogue/models.py:109 catalogue/models.py:133 catalogue/models.py:158
-#: catalogue/models.py:170 catalogue/models.py:191 catalogue/models.py:214
-#: catalogue/models.py:236 catalogue/models.py:308 catalogue/models.py:431
+#: catalogue/models.py:16 catalogue/models.py:123 catalogue/models.py:152
+#: catalogue/models.py:174 catalogue/models.py:198 catalogue/models.py:223
+#: catalogue/models.py:235 catalogue/models.py:256 catalogue/models.py:279
+#: catalogue/models.py:301 catalogue/models.py:373 catalogue/models.py:496
 msgid "UUID"
 msgstr "UUID"
 
-#: catalogue/models.py:21
+#: catalogue/models.py:24
 msgid "Measure group name (cs)"
 msgstr "Název skupiny opetření (cs)"
 
-#: catalogue/models.py:26
+#: catalogue/models.py:29
 msgid "Measure group name (en)"
 msgstr "Název skupiny opetření (en)"
 
-#: catalogue/models.py:32
+#: catalogue/models.py:39
+#| msgid "Measure group name (cs)"
+msgid "Measure group slug (cs)"
+msgstr "Slug skupiny opetření (cs)"
+
+#: catalogue/models.py:47
+#| msgid "Measure group name (en)"
+msgid "Measure group slug (en)"
+msgstr "slug skupiny opetření (en)"
+
+#: catalogue/models.py:51
+msgid "Measure group short description (cs)"
+msgstr "Krátký popis skupiny opatření (cs)"
+
+#: catalogue/models.py:55
+#| msgid "Measure group description (en)"
+msgid "Measure group short description (en)"
+msgstr "Krátky popis skupiny opatření (en)"
+
+#: catalogue/models.py:61
 msgid "Measure group description (cs)"
 msgstr "Popis skupiny opatření (cs)"
 
-#: catalogue/models.py:36
+#: catalogue/models.py:65
 msgid "Measure group description (en)"
 msgstr "Popis skupiny opatření (en)"
 
-#: catalogue/models.py:42
+#: catalogue/models.py:71
 msgid "Measure group icon"
 msgstr "Ikona skupiny opatření"
 
-#: catalogue/models.py:49
+#: catalogue/models.py:74
+msgid "Ordering"
+msgstr "Třídění"
+
+#: catalogue/models.py:75
+msgid "Is active"
+msgstr "Je aktivní"
+
+#: catalogue/models.py:114
 msgid "Measure group"
 msgstr "Skupina opatření"
 
-#: catalogue/models.py:50 catalogue/models.py:322 catalogue/models.py:417
+#: catalogue/models.py:115 catalogue/models.py:387 catalogue/models.py:482
 msgid "Measure groups"
 msgstr "Skupiny opatření"
 
-#: catalogue/models.py:64
+#: catalogue/models.py:129
 msgid "Location type (cs)"
 msgstr "Cílové prostředí (cs)"
 
-#: catalogue/models.py:69
+#: catalogue/models.py:134
 msgid "Location type (en)"
 msgstr "Cílové prostředí (en)"
 
-#: catalogue/models.py:78 catalogue/models.py:326
+#: catalogue/models.py:143 catalogue/models.py:391
 msgid "Location type"
 msgstr "Cílové prostředí"
 
-#: catalogue/models.py:79
+#: catalogue/models.py:144
 msgid "Location types"
 msgstr "Cílové prostředí"
 
-#: catalogue/models.py:91
+#: catalogue/models.py:156
 msgid "Limitation (cs)"
 msgstr "Omezení aplikace (cs)"
 
-#: catalogue/models.py:93
+#: catalogue/models.py:158
 msgid "Limitation (en)"
 msgstr "Omezení aplikace (en)"
 
-#: catalogue/models.py:100 catalogue/models.py:376
+#: catalogue/models.py:165 catalogue/models.py:441
 msgid "Limitation"
 msgstr "Omezení aplikace"
 
-#: catalogue/models.py:101
+#: catalogue/models.py:166
 msgid "Limitations"
 msgstr "Omezení aplikace"
 
-#: catalogue/models.py:114
+#: catalogue/models.py:179
 msgid "Advantage category (cs)"
 msgstr "Kategorie přínosů opatření (cs)"
 
-#: catalogue/models.py:117
+#: catalogue/models.py:182
 msgid "Advantage category (en)"
 msgstr "Kategorie přínosů opatření (en)"
 
-#: catalogue/models.py:124 catalogue/models.py:142
+#: catalogue/models.py:189 catalogue/models.py:207
 msgid "Advantage category"
 msgstr "Karegorie přínosů opatření"
 
-#: catalogue/models.py:125
+#: catalogue/models.py:190
 msgid "Advantage categories"
 msgstr "Kategorie přínosů opatření"
 
-#: catalogue/models.py:137
+#: catalogue/models.py:202
 msgid "Advantage (cs)"
 msgstr "Přínosy (cs)"
 
-#: catalogue/models.py:139
+#: catalogue/models.py:204
 msgid "Advantage (en)"
 msgstr "Přínos (cs)"
 
-#: catalogue/models.py:149 catalogue/models.py:364
+#: catalogue/models.py:214 catalogue/models.py:429
 msgid "Advantage"
 msgstr "Přínos"
 
-#: catalogue/models.py:150
+#: catalogue/models.py:215
 msgid "Advantages"
 msgstr "Přínosy"
 
-#: catalogue/models.py:162
+#: catalogue/models.py:227
 msgid "Prerequisite"
 msgstr "Předprojektová příprava"
 
-#: catalogue/models.py:182
+#: catalogue/models.py:247
 msgid "Sustainable Development Goal"
 msgstr "Cíl udržitelného rozvoje"
 
-#: catalogue/models.py:183
+#: catalogue/models.py:248
 msgid "Sustainable Development Goals"
 msgstr "Cíle udržitelného rozvoje"
 
-#: catalogue/models.py:195 catalogue/models.py:218
+#: catalogue/models.py:260 catalogue/models.py:283
 msgid "Description (cs)"
 msgstr "Popis (cs)"
 
-#: catalogue/models.py:197 catalogue/models.py:220
+#: catalogue/models.py:262 catalogue/models.py:285
 msgid "Description (en)"
 msgstr "Popis (en)"
 
-#: catalogue/models.py:206
+#: catalogue/models.py:271
 msgid "Legislations"
 msgstr "Legislativní rámce"
 
-#: catalogue/models.py:228
+#: catalogue/models.py:293
 msgid "Founding opportunity"
 msgstr "Dotační možnost"
 
-#: catalogue/models.py:229
+#: catalogue/models.py:294
 msgid "Founding opportunities"
 msgstr "Dotační možnosti"
 
-#: catalogue/models.py:239
+#: catalogue/models.py:304
 msgid "Problem (cs)"
 msgstr "Problém (cs)"
 
-#: catalogue/models.py:241
+#: catalogue/models.py:306
 msgid "Problem (en)"
 msgstr "Problém (en)"
 
-#: catalogue/models.py:249
+#: catalogue/models.py:314
 msgid "Main problem"
 msgstr "Hlavní problém"
 
-#: catalogue/models.py:250 catalogue/models.py:374
+#: catalogue/models.py:315 catalogue/models.py:439
 msgid "Main problems"
 msgstr "Hlavní problémy"
 
-#: catalogue/models.py:254
+#: catalogue/models.py:319
 msgid "similar to"
 msgstr "podobná"
 
-#: catalogue/models.py:255
+#: catalogue/models.py:320
 msgid "compatibile with"
 msgstr "kompatibilní"
 
-#: catalogue/models.py:256
+#: catalogue/models.py:321
 msgid "requires"
 msgstr "podmiňující"
 
-#: catalogue/models.py:262 catalogue/models.py:420
+#: catalogue/models.py:327 catalogue/models.py:485
 msgid "Measure"
 msgstr "Opatření"
 
-#: catalogue/models.py:271
+#: catalogue/models.py:336
 msgid "Description"
 msgstr "Popis"
 
-#: catalogue/models.py:277
+#: catalogue/models.py:342
 msgid "Measure combination"
 msgstr "Kombinace opatření"
 
-#: catalogue/models.py:278
+#: catalogue/models.py:343
 msgid "Measure combinations"
 msgstr "Kombinace opatření"
 
-#: catalogue/models.py:289
+#: catalogue/models.py:354
 msgid "Low"
 msgstr "Nízká"
 
-#: catalogue/models.py:290
+#: catalogue/models.py:355
 msgid "Medium"
 msgstr "Střední"
 
-#: catalogue/models.py:291
+#: catalogue/models.py:356
 msgid "High"
 msgstr "Vysoká"
 
-#: catalogue/models.py:294
+#: catalogue/models.py:359
 msgid "Point"
 msgstr "Bodové"
 
-#: catalogue/models.py:295
+#: catalogue/models.py:360
 msgid "Line"
 msgstr "Liniové"
 
-#: catalogue/models.py:296
+#: catalogue/models.py:361
 msgid "Area"
 msgstr "Plošné"
 
-#: catalogue/models.py:299
+#: catalogue/models.py:364
 msgid "< 2,000 inhabitants"
 msgstr "< 2000 obyvatel"
 
-#: catalogue/models.py:300
+#: catalogue/models.py:365
 msgid "2,000 – 10,000 inhabitants"
 msgstr "2000 - 10000 obyvatel"
 
-#: catalogue/models.py:301
+#: catalogue/models.py:366
 msgid "10,000 – 50,000 inhabitants"
 msgstr "10000 - 50000 obyvatel"
 
-#: catalogue/models.py:302
+#: catalogue/models.py:367
 msgid "> 50,000 inhabitants"
 msgstr "> 50000 obyvatel"
 
-#: catalogue/models.py:313
+#: catalogue/models.py:378
 msgid "Measure name (cs)"
 msgstr "Název skupiny opetření (cs)"
 
-#: catalogue/models.py:317
+#: catalogue/models.py:382
 msgid "Measure name (en)"
 msgstr "Název skupiny opetření (en)"
 
-#: catalogue/models.py:330
+#: catalogue/models.py:395
 msgid "Measure short description (cs)"
 msgstr "Krátky popis opatření (cs)"
 
-#: catalogue/models.py:335
+#: catalogue/models.py:400
 msgid "Measure short description (en)"
 msgstr "Krátky popis opatření (en)"
 
-#: catalogue/models.py:340
+#: catalogue/models.py:405
 msgid "Measure description (cs)"
 msgstr "Popis opatření (cs)"
 
-#: catalogue/models.py:343
+#: catalogue/models.py:408
 msgid "Measure description (en)"
 msgstr "Popis opatření (en)"
 
-#: catalogue/models.py:346
+#: catalogue/models.py:411
 msgid "When and why to use (cs)"
 msgstr "Kdy a proč použít (cs)"
 
-#: catalogue/models.py:348
+#: catalogue/models.py:413
 msgid "When and why to use (en)"
 msgstr "Kdy a poroč použít (en)"
 
-#: catalogue/models.py:354
+#: catalogue/models.py:419
 msgid "Temperature"
 msgstr "Teplota"
 
-#: catalogue/models.py:355
+#: catalogue/models.py:420
 msgid "Water"
 msgstr "Voda"
 
-#: catalogue/models.py:356
+#: catalogue/models.py:421
 msgid "Biodiversity"
 msgstr "Biodiverzita"
 
-#: catalogue/models.py:357
+#: catalogue/models.py:422
 msgid "Air"
 msgstr "Vzduch"
 
-#: catalogue/models.py:358
+#: catalogue/models.py:423
 msgid "Aesthetics"
 msgstr "Estetika"
 
-#: catalogue/models.py:361
+#: catalogue/models.py:426
 msgid "Main advantage"
 msgstr "Hlavní přínos"
 
-#: catalogue/models.py:371
+#: catalogue/models.py:436
 msgid "Municipality size"
 msgstr "Velikost podle počtu obyvatel obce"
 
-#: catalogue/models.py:379
+#: catalogue/models.py:444
 msgid "Complexity of realization"
 msgstr "Náročnost realizace"
 
-#: catalogue/models.py:382
+#: catalogue/models.py:447
 msgid "Budget"
 msgstr "Náklady na realizaci"
 
-#: catalogue/models.py:385
+#: catalogue/models.py:450
 msgid "Funding opportunity"
 msgstr "Dotační možnost"
 
-#: catalogue/models.py:387
+#: catalogue/models.py:452
 msgid "Price"
 msgstr "Cena"
 
-#: catalogue/models.py:388
+#: catalogue/models.py:453
 msgid "Units"
 msgstr "Jednotky"
 
-#: catalogue/models.py:391
+#: catalogue/models.py:456
 msgid "Time horizon"
 msgstr "Časový horizont"
 
-#: catalogue/models.py:394
+#: catalogue/models.py:459
 msgid "Measure size"
 msgstr "Prostorový typ opaření"
 
-#: catalogue/models.py:397
+#: catalogue/models.py:462
 msgid "DIY"
 msgstr "Svépomocná realizace"
 
-#: catalogue/models.py:421
+#: catalogue/models.py:486
 msgid "Measures"
 msgstr "Opatření"
 
-#: catalogue/models.py:439
+#: catalogue/models.py:504
 msgid "Performance"
 msgstr ""
 
-#: chytrakrajina/settings.py:98
+#: chytrakrajina/settings.py:100
 msgid "Czech"
 msgstr "Čeština"
 
-#: chytrakrajina/settings.py:99
+#: chytrakrajina/settings.py:101
 msgid "English"
 msgstr "Angličtina"
 
-#: chytrakrajina/settings.py:125
-msgid "Public RestAPI"
-msgstr "Veřejné RestAPI"
-
-#: chytrakrajina/urls.py:26
+#: chytrakrajina/urls.py:62
 msgid "Správa databáze katalogu Chytrá krajina"
 msgstr "Správa databáze katalogu Chytrá krajina"
 
-#: chytrakrajina/urls.py:27
+#: chytrakrajina/urls.py:63
 msgid "Chytrá krajina"
 msgstr "Správa databáze katalogu Chytrá krajina"
 
-#: chytrakrajina/urls.py:28
+#: chytrakrajina/urls.py:64
 msgid "Administrace katalogu"
 msgstr "Správa databáze katalogu Chytrá krajina"
+
+#~ msgid "Public RestAPI"
+#~ msgstr "Veřejné RestAPI"
 
 #~ msgid "Combination description (cs)"
 #~ msgstr "Popis proč opatření souvisí (cs)"

@@ -47,6 +47,16 @@ class MeasureGroup(models.Model):
         verbose_name=_("Measure group slug (en)"),
     )
 
+    short_description_cs = models.CharField(max_length=255,
+        verbose_name=_("Measure group short description (cs)"),
+    )
+
+    short_description_en = models.CharField(
+        verbose_name=_("Measure group short description (en)"),
+        null=True,
+        blank=True,
+    )
+
     description_cs = models.TextField(
         verbose_name=_("Measure group description (cs)"),
     )
@@ -60,6 +70,9 @@ class MeasureGroup(models.Model):
     icon = models.ImageField(
         upload_to="measure_groups", verbose_name=_("Measure group icon")
     )
+
+    ordering = models.IntegerField(default=0, verbose_name=_("Ordering"))
+    is_active = models.BooleanField(default=True, verbose_name=_("Is active"))
 
     def name(self):
         if get_language() == "cs":
