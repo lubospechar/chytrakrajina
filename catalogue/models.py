@@ -47,12 +47,12 @@ class MeasureGroup(models.Model):
         verbose_name=_("Measure group slug (en)"),
     )
 
-    short_description_cs = models.CharField(max_length=255,
-        verbose_name=_("Measure group short description (cs)"),
+    short_name_cs = models.CharField(max_length=255,
+        verbose_name=_("Measure group short name (cs)"),
     )
 
-    short_description_en = models.CharField(
-        verbose_name=_("Measure group short description (en)"),
+    short_name_en = models.CharField(
+        verbose_name=_("Measure group short name (en)"),
         null=True,
         blank=True,
     )

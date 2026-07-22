@@ -11,7 +11,7 @@ class MeasureGroupSerializer(serializers.ModelSerializer):
             'slug',
             "ordering",
             "name",
-            "short_description",
+            "short_name",
             "description",
             "icon",
             'created_at',
