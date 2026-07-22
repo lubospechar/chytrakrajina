@@ -86,6 +86,12 @@ class MeasureGroup(models.Model):
         else:
             return self.description_en
 
+    def short_description(self):
+        if get_language() == "cs":
+            return self.short_description_cs
+        else:
+            return self.short_description_en
+
     def slug(self):
         if get_language() == "cs":
             return self.slug_cs
