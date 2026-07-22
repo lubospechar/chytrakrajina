@@ -86,11 +86,11 @@ class MeasureGroup(models.Model):
         else:
             return self.description_en
 
-    def short_description(self):
+    def short_name(self):
         if get_language() == "cs":
-            return self.short_description_cs
+            return self.short_name_cs
         else:
-            return self.short_description_en
+            return self.short_name_en
 
     def slug(self):
         if get_language() == "cs":
