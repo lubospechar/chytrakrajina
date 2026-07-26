@@ -98,6 +98,10 @@ class MeasureAdmin(admin.ModelAdmin):
     list_filter = ("groups",)
     search_fields = ("name_cs", "short_description_cs")
     ordering = ("name_cs",)
+    prepopulated_fields = {
+        "slug_cs": ("name_cs",),
+        "slug_en": ("name_en",),
+    }
     inlines = [MeasureCombinationInline]
     fieldsets = (
         (None, {"fields": ("groups",)}),
