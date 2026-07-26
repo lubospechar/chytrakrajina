@@ -403,6 +403,9 @@ class Measure(models.Model):
         blank=True,
     )
 
+    created_at = models.DateTimeField(auto_now_add=True)
+    last_modified = models.DateTimeField(auto_now=True)
+
     groups = models.ManyToManyField(MeasureGroup, verbose_name=_("Measure groups"), related_name="measures")
 
 
