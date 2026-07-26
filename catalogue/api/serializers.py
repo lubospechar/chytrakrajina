@@ -18,3 +18,4 @@ class MeasureGroupSerializer(serializers.ModelSerializer):
             'last_modified',
             'measure_count',
         )
+

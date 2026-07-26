@@ -391,6 +391,20 @@ class Measure(models.Model):
         blank=True,
     )
 
+    slug_cs = models.SlugField(
+        max_length=255,
+        unique=True,
+        null=True,
+        blank=True,
+    )
+
+    slug_en = models.SlugField(
+        max_length=255,
+        unique=True,
+        null=True,
+        blank=True,
+    )
+
     groups = models.ManyToManyField(MeasureGroup, verbose_name=_("Measure groups"), related_name="measures")
 
 
