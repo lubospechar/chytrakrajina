@@ -394,8 +394,6 @@ class Measure(models.Model):
     slug_cs = models.SlugField(
         max_length=255,
         unique=True,
-        null=True,
-        blank=True,
     )
 
     slug_en = models.SlugField(
