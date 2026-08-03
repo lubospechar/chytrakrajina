@@ -1,4 +1,3 @@
-
 from rest_framework import viewsets
 from django.utils.translation import get_language, activate
 
@@ -10,6 +9,7 @@ class MeasureGroupViewSet(viewsets.ReadOnlyModelViewSet):
     """
     Public read-only API for Measure groups.
     """
+
     queryset = MeasureGroup.objects.all()
     serializer_class = MeasureGroupSerializer
     lookup_field = "uuid"
@@ -28,6 +28,7 @@ class MeasureViewSet(viewsets.ReadOnlyModelViewSet):
     """
     Public read-only API for Measures.
     """
+
     queryset = Measure.objects.all()
     serializer_class = MeasureSerializer
     lookup_field = "uuid"

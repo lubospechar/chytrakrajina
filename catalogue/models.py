@@ -47,7 +47,8 @@ class MeasureGroup(models.Model):
         verbose_name=_("Measure group slug (en)"),
     )
 
-    short_name_cs = models.CharField(max_length=255,
+    short_name_cs = models.CharField(
+        max_length=255,
         verbose_name=_("Measure group short name (cs)"),
     )
 
@@ -115,7 +116,9 @@ class MeasureGroup(models.Model):
     class Meta:
         verbose_name = _("Measure group")
         verbose_name_plural = _("Measure groups")
-        ordering = ["ordering",]
+        ordering = [
+            "ordering",
+        ]
 
 
 class LocationType(models.Model):
@@ -143,7 +146,6 @@ class LocationType(models.Model):
         if get_language() == "en":
             return self.location_type_en
         return self.location_type_cs
-
 
     def __str__(self):
         return self.location_type_cs
@@ -248,7 +250,7 @@ class PreDesign(models.Model):
         primary_key=True,
     )
 
-    #TODO: prereqisite czech a english
+    # TODO: prereqisite czech a english
     prereqisite = models.CharField(max_length=255, verbose_name=_("Prerequisite"))
 
 
@@ -262,7 +264,7 @@ class SDG(models.Model):
     )
 
     sdg_number = models.PositiveSmallIntegerField()
-    #TODO: sdg_name czech a english
+    # TODO: sdg_name czech a english
     sdg_name = models.CharField(max_length=100)
     icon = models.ImageField(null=True, blank=True, upload_to="sdg_icons")
 
@@ -283,7 +285,9 @@ class Law(models.Model):
         primary_key=True,
     )
 
-    description_cs = models.CharField(max_length=100, verbose_name=_("Description (cs)"))
+    description_cs = models.CharField(
+        max_length=100, verbose_name=_("Description (cs)")
+    )
     description_en = models.CharField(
         max_length=100, null=True, blank=True, verbose_name=_("Description (en)")
     )
@@ -311,7 +315,9 @@ class FundingOpportunity(models.Model):
         primary_key=True,
     )
 
-    description_cs = models.CharField(max_length=100, verbose_name=_("Description (cs)"))
+    description_cs = models.CharField(
+        max_length=100, verbose_name=_("Description (cs)")
+    )
     description_en = models.CharField(
         max_length=100, null=True, blank=True, verbose_name=_("Description (en)")
     )
@@ -328,6 +334,7 @@ class FundingOpportunity(models.Model):
     class Meta:
         verbose_name = _("Founding opportunity")
         verbose_name_plural = _("Founding opportunities")
+
 
 class MainProblems(models.Model):
     uuid = models.UUIDField(
@@ -355,6 +362,7 @@ class MainProblems(models.Model):
         verbose_name = _("Main problem")
         verbose_name_plural = _("Main problems")
 
+
 class MeasureCombination(models.Model):
     class DescriptionChoices(models.TextChoices):
         SIMILAR = "similar", _("similar to")
@@ -374,8 +382,14 @@ class MeasureCombination(models.Model):
         verbose_name=_("Related measure"),
     )
 
-    #TODO: description czech a english
-    description = models.CharField(max_length=10, choices=DescriptionChoices, verbose_name=_("Description"), null=True, blank=True)
+    # TODO: description czech a english
+    description = models.CharField(
+        max_length=10,
+        choices=DescriptionChoices,
+        verbose_name=_("Description"),
+        null=True,
+        blank=True,
+    )
 
     def __str__(self):
         return f"{self.from_measure} \u2192 {self.to_measure}"
@@ -441,8 +455,9 @@ class Measure(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
 
-    groups = models.ManyToManyField(MeasureGroup, verbose_name=_("Measure groups"), related_name="measures")
-
+    groups = models.ManyToManyField(
+        MeasureGroup, verbose_name=_("Measure groups"), related_name="measures"
+    )
 
     location_type = models.ManyToManyField(
         LocationType, verbose_name=_("Location type")
@@ -465,7 +480,9 @@ class Measure(models.Model):
         _("Measure description (en)"), null=True, blank=True
     )
 
-    when_and_why_to_use_cs = models.TextField(verbose_name=_("When and why to use (cs)"))
+    when_and_why_to_use_cs = models.TextField(
+        verbose_name=_("When and why to use (cs)")
+    )
     when_and_why_to_use_en = models.TextField(
         verbose_name=_("When and why to use (en)"), null=True, blank=True
     )
@@ -493,7 +510,9 @@ class Measure(models.Model):
         verbose_name=_("Municipality size"),
     )
 
-    main_problems = models.ManyToManyField(MainProblems, verbose_name=_("Main problems"), related_name="main_problems")
+    main_problems = models.ManyToManyField(
+        MainProblems, verbose_name=_("Main problems"), related_name="main_problems"
+    )
 
     limitation = models.ManyToManyField(Limitation, verbose_name=_("Limitation"))
 
@@ -504,7 +523,12 @@ class Measure(models.Model):
         max_length=1, choices=LMHChoices, verbose_name=_("Budget")
     )
 
-    funding_opportunity = models.ManyToManyField(FundingOpportunity, verbose_name=_("Funding opportunity"), related_name="funding_opportunity", blank=True)
+    funding_opportunity = models.ManyToManyField(
+        FundingOpportunity,
+        verbose_name=_("Funding opportunity"),
+        related_name="funding_opportunity",
+        blank=True,
+    )
 
     price = models.PositiveIntegerField(null=True, blank=True, verbose_name=_("Price"))
     units = models.CharField(max_length=10, verbose_name=_("Units"))
@@ -536,15 +560,14 @@ class Measure(models.Model):
 
     def display_groups(self):
         return ", ".join(self.groups.values_list("name_cs", flat=True))
-    display_groups.short_description = _("Measure groups")
 
+    display_groups.short_description = _("Measure groups")
 
     def slug(self):
         if get_language() == "cs":
             return self.slug_cs
         else:
             return self.slug_en
-
 
     def when_and_why_to_use(self):
         if get_language() == "cs":
@@ -573,8 +596,6 @@ class Measure(models.Model):
     class Meta:
         verbose_name = _("Measure")
         verbose_name_plural = _("Measures")
-
-
 
 
 class Performance(models.Model):

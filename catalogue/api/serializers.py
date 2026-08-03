@@ -11,15 +11,15 @@ class MeasureGroupSerializer(serializers.ModelSerializer):
         model = MeasureGroup
         fields = (
             "uuid",
-            'slug',
+            "slug",
             "ordering",
             "name",
             "short_name",
             "description",
             "icon",
-            'created_at',
-            'last_modified',
-            'measure_count',
+            "created_at",
+            "last_modified",
+            "measure_count",
         )
 
 
@@ -28,16 +28,22 @@ class UUIDNameRelatedSerializer(serializers.Serializer):
     Generic helper serializer for M2M relations - returns UUID
     together with the string representation of the related object.
     """
+
     uuid = serializers.UUIDField()
     name = serializers.SerializerMethodField()
 
     def get_name(self, obj):
         return str(obj)
 
+
 class MeasureCombineSerializer(serializers.ModelSerializer):
     class Meta:
         model = Measure
-        fields = ("uuid", "name",)
+        fields = (
+            "uuid",
+            "name",
+        )
+
 
 class MeasureSerializer(serializers.ModelSerializer):
     groups = UUIDNameRelatedSerializer(many=True, read_only=True)
@@ -50,10 +56,18 @@ class MeasureSerializer(serializers.ModelSerializer):
     combine = MeasureCombineSerializer(many=True, read_only=True)
     sdg = UUIDNameRelatedSerializer(many=True, read_only=True)
     law = UUIDNameRelatedSerializer(many=True, read_only=True)
-    complexity_of_realization_display = serializers.CharField(source="get_complexity_of_realization_display", read_only=True)
-    budget_choices_display = serializers.CharField(source="get_budget_choices_display", read_only=True)
-    time_horizon_display = serializers.CharField(source="get_time_horizon_display", read_only=True)
-    measure_size_display = serializers.CharField(source="get_measure_size_display", read_only=True)
+    complexity_of_realization_display = serializers.CharField(
+        source="get_complexity_of_realization_display", read_only=True
+    )
+    budget_choices_display = serializers.CharField(
+        source="get_budget_choices_display", read_only=True
+    )
+    time_horizon_display = serializers.CharField(
+        source="get_time_horizon_display", read_only=True
+    )
+    measure_size_display = serializers.CharField(
+        source="get_measure_size_display", read_only=True
+    )
 
     class Meta:
         model = Measure
