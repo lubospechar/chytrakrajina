@@ -3,13 +3,6 @@ from rest_framework import serializers
 from catalogue.models import (
     Measure,
     MeasureGroup,
-    LocationType,
-    Advantage,
-    MainProblems,
-    Limitation,
-    FundingOpportunity,
-    SDG,
-    Law,
 )
 
 
@@ -57,6 +50,10 @@ class MeasureSerializer(serializers.ModelSerializer):
     combine = MeasureCombineSerializer(many=True, read_only=True)
     sdg = UUIDNameRelatedSerializer(many=True, read_only=True)
     law = UUIDNameRelatedSerializer(many=True, read_only=True)
+    complexity_of_realization_display = serializers.CharField(source="get_complexity_of_realization_display", read_only=True)
+    budget_choices_display = serializers.CharField(source="get_budget_choices_display", read_only=True)
+    time_horizon_display = serializers.CharField(source="get_time_horizon_display", read_only=True)
+    measure_size_display = serializers.CharField(source="get_measure_size_display", read_only=True)
 
     class Meta:
         model = Measure
@@ -83,12 +80,16 @@ class MeasureSerializer(serializers.ModelSerializer):
             "main_problems",
             "limitation",
             "complexity_of_realization",
+            "complexity_of_realization_display",
             "budget_choices",
+            "budget_choices_display",
             "funding_opportunity",
             "price",
             "units",
             "time_horizon",
+            "time_horizon_display",
             "measure_size",
+            "measure_size_display",
             "diy",
             "combine",
             "sdg",
