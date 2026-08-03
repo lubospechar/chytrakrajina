@@ -75,28 +75,24 @@ class MeasureGroup(models.Model):
     is_active = models.BooleanField(default=True, verbose_name=_("Is active"))
 
     def name(self):
-        if get_language() == "cs":
-            return self.name_cs
-        else:
+        if get_language() == "en":
             return self.name_en
+        return self.name_cs
 
     def description(self):
-        if get_language() == "cs":
-            return self.description_cs
-        else:
+        if get_language() == "en":
             return self.description_en
+        return self.description_cs
 
     def short_name(self):
-        if get_language() == "cs":
-            return self.short_name_cs
-        else:
+        if get_language() == "en":
             return self.short_name_en
+        return self.short_name_cs
 
     def slug(self):
-        if get_language() == "cs":
-            return self.slug_cs
-        else:
+        if get_language() == "en":
             return self.slug_en
+        return self.slug_cs
 
     def measure_count(self):
         return self.measures.count()
@@ -143,6 +139,12 @@ class LocationType(models.Model):
         blank=True,
     )
 
+    def location_type(self):
+        if get_language() == "en":
+            return self.location_type_en
+        return self.location_type_cs
+
+
     def __str__(self):
         return self.location_type_cs
 
@@ -164,6 +166,11 @@ class Limitation(models.Model):
     limitation_en = models.CharField(
         max_length=35, null=True, blank=True, verbose_name=_("Limitation (en)")
     )
+
+    def limitation(self):
+        if get_language() == "en":
+            return self.limitation_en
+        return self.limitation_cs
 
     def __str__(self):
         return self.limitation_cs
@@ -192,6 +199,11 @@ class AdvatageCategory(models.Model):
     def __str__(self):
         return self.advantage_category_cs
 
+    def advantage_category(self):
+        if get_language() == "en":
+            return self.advantage_category_en
+        return self.advantage_category_cs
+
     class Meta:
         verbose_name = _("Advantage category")
         verbose_name_plural = _("Advantage categories")
@@ -214,6 +226,11 @@ class Advantage(models.Model):
         AdvatageCategory, on_delete=models.CASCADE, verbose_name=_("Advantage category")
     )
 
+    def advantage(self):
+        if get_language() == "en":
+            return self.advantage_en
+        return self.advantage_cs
+
     def __str__(self):
         return self.advantage_cs
 
@@ -231,6 +248,7 @@ class PreDesign(models.Model):
         primary_key=True,
     )
 
+    #TODO: prereqisite czech a english
     prereqisite = models.CharField(max_length=255, verbose_name=_("Prerequisite"))
 
 
@@ -244,6 +262,7 @@ class SDG(models.Model):
     )
 
     sdg_number = models.PositiveSmallIntegerField()
+    #TODO: sdg_name czech a english
     sdg_name = models.CharField(max_length=100)
     icon = models.ImageField(null=True, blank=True, upload_to="sdg_icons")
 
@@ -273,6 +292,11 @@ class Law(models.Model):
     def __str__(self):
         return self.description_cs
 
+    def description(self):
+        if get_language() == "en":
+            return self.description_en
+        return self.description_cs
+
     class Meta:
         verbose_name = _("Legislation")
         verbose_name_plural = _("Legislations")
@@ -296,6 +320,11 @@ class FundingOpportunity(models.Model):
     def __str__(self):
         return self.description_cs
 
+    def description(self):
+        if get_language() == "en":
+            return self.description_en
+        return self.description_cs
+
     class Meta:
         verbose_name = _("Founding opportunity")
         verbose_name_plural = _("Founding opportunities")
@@ -315,6 +344,11 @@ class MainProblems(models.Model):
     icon = models.ImageField(null=True, blank=True, upload_to="main_problems")
 
     def __str__(self):
+        return self.problem_cs
+
+    def problem(self):
+        if get_language() == "en":
+            return self.problem_en
         return self.problem_cs
 
     class Meta:
@@ -340,6 +374,7 @@ class MeasureCombination(models.Model):
         verbose_name=_("Related measure"),
     )
 
+    #TODO: description czech a english
     description = models.CharField(max_length=10, choices=DescriptionChoices, verbose_name=_("Description"), null=True, blank=True)
 
     def __str__(self):
@@ -502,6 +537,38 @@ class Measure(models.Model):
     def display_groups(self):
         return ", ".join(self.groups.values_list("name_cs", flat=True))
     display_groups.short_description = _("Measure groups")
+
+
+    def slug(self):
+        if get_language() == "cs":
+            return self.slug_cs
+        else:
+            return self.slug_en
+
+
+    def when_and_why_to_use(self):
+        if get_language() == "cs":
+            return self.when_and_why_to_use_cs
+        else:
+            return self.when_and_why_to_use_en
+
+    def name(self):
+        if get_language() == "cs":
+            return self.name_cs
+        else:
+            return self.name_en
+
+    def description(self):
+        if get_language() == "cs":
+            return self.description_cs
+        else:
+            return self.description_en
+
+    def short_description(self):
+        if get_language() == "cs":
+            return self.short_description_cs
+        else:
+            return self.short_description_en
 
     class Meta:
         verbose_name = _("Measure")
