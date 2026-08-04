@@ -172,6 +172,9 @@ class Limitation(models.Model):
         max_length=35, null=True, blank=True, verbose_name=_("Limitation (en)")
     )
 
+    created_at = models.DateTimeField(auto_now_add=True)
+    last_modified = models.DateTimeField(auto_now=True)
+
     def limitation(self):
         if get_language() == "en":
             return self.limitation_en

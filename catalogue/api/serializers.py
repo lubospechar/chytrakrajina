@@ -3,7 +3,7 @@ from rest_framework import serializers
 from catalogue.models import (
     Measure,
     MeasureGroup,
-    LocationType,
+    LocationType, Limitation,
 )
 
 
@@ -32,6 +32,18 @@ class LocationTypeSerializer(serializers.ModelSerializer):
         fields = (
             "uuid",
             "location_type",
+            "created_at",
+            "last_modified",
+        )
+
+class LimitationSerializer(serializers.ModelSerializer):
+    limitation = serializers.CharField(read_only=True)
+
+    class Meta:
+        model = Limitation
+        fields = (
+            "uuid",
+            "limitation",
             "created_at",
             "last_modified",
         )

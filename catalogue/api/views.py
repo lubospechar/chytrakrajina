@@ -1,11 +1,11 @@
 from rest_framework import viewsets
 from django.utils.translation import get_language, activate
 
-from catalogue.models import MeasureGroup, Measure, LocationType
+from catalogue.models import MeasureGroup, Measure, LocationType, Limitation
 from catalogue.api.serializers import (
     MeasureGroupSerializer,
     MeasureSerializer,
-    LocationTypeSerializer,
+    LocationTypeSerializer, LimitationSerializer,
 )
 
 
@@ -55,6 +55,27 @@ class LocationTypeViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = LocationType.objects.all()
     serializer_class = LocationTypeSerializer
     lookup_field = "uuid"
+    pagination_class = None
+
+    def initial(self, request, *args, **kwargs):
+        super().initial(request, *args, **kwargs)
+
+        language_code = getattr(
+            request,
+            "LANGUAGE_CODE",
+        )
+        activate(language_code)
+
+
+class LimitationViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    Public read-only API for Limitations.
+    """
+
+    queryset = Limitation.objects.all()
+    serializer_class = LimitationSerializer
+    lookup_field = "uuid"
+    pagination_class = None
 
     def initial(self, request, *args, **kwargs):
         super().initial(request, *args, **kwargs)
