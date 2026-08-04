@@ -3,7 +3,9 @@ from rest_framework import serializers
 from catalogue.models import (
     Measure,
     MeasureGroup,
-    LocationType, Limitation,
+    LocationType,
+    Limitation,
+    AdvatageCategory,
 )
 
 
@@ -35,6 +37,7 @@ class LocationTypeSerializer(serializers.ModelSerializer):
             "created_at",
             "last_modified",
         )
+
 
 class LimitationSerializer(serializers.ModelSerializer):
     limitation = serializers.CharField(read_only=True)
@@ -68,6 +71,19 @@ class MeasureCombineSerializer(serializers.ModelSerializer):
         fields = (
             "uuid",
             "name",
+        )
+
+
+class AdvantageCategorySerializer(serializers.ModelSerializer):
+    advantage_category = serializers.CharField(read_only=True)
+
+    class Meta:
+        model = AdvatageCategory
+        fields = (
+            "uuid",
+            "advantage_category",
+            "created_at",
+            "last_modified",
         )
 
 

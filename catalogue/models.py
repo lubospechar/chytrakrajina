@@ -197,6 +197,9 @@ class AdvatageCategory(models.Model):
         primary_key=True,
     )
 
+    created_at = models.DateTimeField(auto_now_add=True)
+    last_modified = models.DateTimeField(auto_now=True)
+
     advantage_category_cs = models.CharField(
         max_length=35, verbose_name=_("Advantage category (cs)")
     )
