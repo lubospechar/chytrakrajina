@@ -130,6 +130,9 @@ class LocationType(models.Model):
         primary_key=True,
     )
 
+    created_at = models.DateTimeField(auto_now_add=True)
+    last_modified = models.DateTimeField(auto_now=True)
+
     location_type_cs = models.CharField(
         max_length=20,
         verbose_name=_("Location type (cs)"),

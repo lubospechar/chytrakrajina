@@ -32,6 +32,8 @@ class LocationTypeSerializer(serializers.ModelSerializer):
         fields = (
             "uuid",
             "location_type",
+            "created_at",
+            "last_modified",
         )
 
 
