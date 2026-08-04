@@ -6,6 +6,7 @@ from catalogue.models import (
     LocationType,
     Limitation,
     AdvatageCategory,
+    Advantage,
 )
 
 
@@ -81,6 +82,32 @@ class AdvantageCategorySerializer(serializers.ModelSerializer):
         model = AdvatageCategory
         fields = (
             "uuid",
+            "advantage_category",
+            "created_at",
+            "last_modified",
+        )
+
+
+class AdvantageCategoryNestedSerializer(serializers.ModelSerializer):
+    name = serializers.CharField(source="advantage_category", read_only=True)
+
+    class Meta:
+        model = AdvatageCategory
+        fields = (
+            "uuid",
+            "name",
+        )
+
+
+class AdvantageSerializer(serializers.ModelSerializer):
+    advantage = serializers.CharField(read_only=True)
+    advantage_category = AdvantageCategoryNestedSerializer(read_only=True)
+
+    class Meta:
+        model = Advantage
+        fields = (
+            "uuid",
+            "advantage",
             "advantage_category",
             "created_at",
             "last_modified",

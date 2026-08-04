@@ -237,6 +237,9 @@ class Advantage(models.Model):
         AdvatageCategory, on_delete=models.CASCADE, verbose_name=_("Advantage category")
     )
 
+    created_at = models.DateTimeField(auto_now_add=True)
+    last_modified = models.DateTimeField(auto_now=True)
+
     def advantage(self):
         if get_language() == "en":
             return self.advantage_en
@@ -250,7 +253,7 @@ class Advantage(models.Model):
         verbose_name_plural = _("Advantages")
 
 
-class PreDesign(models.Model):
+class Prerequisite(models.Model):
     uuid = models.UUIDField(
         default=uuid.uuid4,
         editable=False,
@@ -259,8 +262,24 @@ class PreDesign(models.Model):
         primary_key=True,
     )
 
-    # TODO: prereqisite czech a english
-    prereqisite = models.CharField(max_length=255, verbose_name=_("Prerequisite"))
+    prereqisite_cs = models.CharField(max_length=255, verbose_name=_("Prerequisite (Czech)"))
+    prereqisite_en = models.CharField(max_length=255, verbose_name=_("Prerequisite (English)"))
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    last_modified = models.DateTimeField(auto_now=True)
+
+    def prereqisite(self):
+        if get_language() == "en":
+            return self.prereqisite_en
+        return self.prereqisite_cs
+
+    def __str__(self):
+        return self.prereqisite_cs
+
+    class Meta:
+        verbose_name = _("Prerequisite")
+        verbose_name_plural = _("Prerequisites")
+
 
 
 class SDG(models.Model):

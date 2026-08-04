@@ -7,6 +7,7 @@ from catalogue.models import (
     LocationType,
     Limitation,
     AdvatageCategory,
+    Advantage,
 )
 from catalogue.api.serializers import (
     MeasureGroupSerializer,
@@ -14,6 +15,7 @@ from catalogue.api.serializers import (
     LocationTypeSerializer,
     LimitationSerializer,
     AdvantageCategorySerializer,
+    AdvantageSerializer,
 )
 
 
@@ -102,6 +104,26 @@ class AdvantageCategoryViewSet(viewsets.ReadOnlyModelViewSet):
 
     queryset = AdvatageCategory.objects.all()
     serializer_class = AdvantageCategorySerializer
+    lookup_field = "uuid"
+    pagination_class = None
+
+    def initial(self, request, *args, **kwargs):
+        super().initial(request, *args, **kwargs)
+
+        language_code = getattr(
+            request,
+            "LANGUAGE_CODE",
+        )
+        activate(language_code)
+
+
+class AdvantageViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    Public read-only API for Advantages.
+    """
+
+    queryset = Advantage.objects.select_related("advantage_category").all()
+    serializer_class = AdvantageSerializer
     lookup_field = "uuid"
     pagination_class = None
 
