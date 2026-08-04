@@ -1,8 +1,12 @@
 from rest_framework import viewsets
 from django.utils.translation import get_language, activate
 
-from catalogue.models import MeasureGroup, Measure
-from catalogue.api.serializers import MeasureGroupSerializer, MeasureSerializer
+from catalogue.models import MeasureGroup, Measure, LocationType
+from catalogue.api.serializers import (
+    MeasureGroupSerializer,
+    MeasureSerializer,
+    LocationTypeSerializer,
+)
 
 
 class MeasureGroupViewSet(viewsets.ReadOnlyModelViewSet):
@@ -31,6 +35,25 @@ class MeasureViewSet(viewsets.ReadOnlyModelViewSet):
 
     queryset = Measure.objects.all()
     serializer_class = MeasureSerializer
+    lookup_field = "uuid"
+
+    def initial(self, request, *args, **kwargs):
+        super().initial(request, *args, **kwargs)
+
+        language_code = getattr(
+            request,
+            "LANGUAGE_CODE",
+        )
+        activate(language_code)
+
+
+class LocationTypeViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    Public read-only API for Location types.
+    """
+
+    queryset = LocationType.objects.all()
+    serializer_class = LocationTypeSerializer
     lookup_field = "uuid"
 
     def initial(self, request, *args, **kwargs):

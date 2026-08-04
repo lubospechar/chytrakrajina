@@ -3,6 +3,7 @@ from rest_framework import serializers
 from catalogue.models import (
     Measure,
     MeasureGroup,
+    LocationType,
 )
 
 
@@ -20,6 +21,17 @@ class MeasureGroupSerializer(serializers.ModelSerializer):
             "created_at",
             "last_modified",
             "measure_count",
+        )
+
+
+class LocationTypeSerializer(serializers.ModelSerializer):
+    location_type = serializers.CharField(read_only=True)
+
+    class Meta:
+        model = LocationType
+        fields = (
+            "uuid",
+            "location_type",
         )
 
 
