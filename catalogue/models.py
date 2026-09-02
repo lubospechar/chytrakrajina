@@ -293,7 +293,7 @@ class SDG(models.Model):
 
     sdg_number = models.PositiveSmallIntegerField()
     # TODO: sdg_name czech a english
-    sdg_name = models.CharField(max_length=100)
+    sdg_name_cs = models.CharField(max_length=100)
     icon = models.ImageField(null=True, blank=True, upload_to="sdg_icons")
 
     def __str__(self):

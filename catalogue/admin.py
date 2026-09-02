@@ -42,7 +42,7 @@ class MeasureAdminForm(forms.ModelForm):
 
 @admin.register(SDG)
 class SDGAdmin(admin.ModelAdmin):
-    list_display = ("sdg_number", "sdg_name")
+    list_display = ("sdg_number", "sdg_name_cs", "sdg_name_en")
 
 @admin.register(Law)
 class LawAdmin(admin.ModelAdmin):
