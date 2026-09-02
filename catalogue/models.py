@@ -95,8 +95,9 @@ class MeasureGroup(models.Model):
             return self.slug_en
         return self.slug_cs
 
-    def measure_count(self):
-        return self.measures.count()
+    @property
+    def measure_count(self) -> int:
+        return int(self.measures.count())
 
     def __str__(self):
         return self.name_cs
