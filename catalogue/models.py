@@ -450,6 +450,8 @@ class Measure(models.Model):
         FROM_10000_TO_50000 = "L", _("10,000 – 50,000 inhabitants")
         OVER_50000 = "XL", _("> 50,000 inhabitants")
 
+    SCORE_FIELDS = ("aesthetics", "air", "biodiversity", "water", "temperature")
+
     uuid = models.UUIDField(
         default=uuid.uuid4,
         editable=False,
@@ -586,35 +588,46 @@ class Measure(models.Model):
     def __str__(self):
         return self.name_cs
 
+
+    @property
+    def overall_score(self):
+        values = [getattr(self, field) for field in self.SCORE_FIELDS]
+        return sum(values) / len(values) if values else 0
+
     def display_groups(self):
         return ", ".join(self.groups.values_list("name_cs", flat=True))
 
     display_groups.short_description = _("Measure groups")
 
+    @property
     def slug(self):
         if get_language() == "cs":
             return self.slug_cs
         else:
             return self.slug_en
 
+    @property
     def when_and_why_to_use(self):
         if get_language() == "cs":
             return self.when_and_why_to_use_cs
         else:
             return self.when_and_why_to_use_en
 
+    @property
     def name(self):
         if get_language() == "cs":
             return self.name_cs
         else:
             return self.name_en
 
+    @property
     def description(self):
         if get_language() == "cs":
             return self.description_cs
         else:
             return self.description_en
 
+    @property
     def short_description(self):
         if get_language() == "cs":
             return self.short_description_cs

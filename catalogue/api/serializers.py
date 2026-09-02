@@ -157,6 +157,7 @@ class MeasureSerializer(serializers.ModelSerializer):
             "biodiversity",
             "air",
             "aesthetics",
+            "overall_score",
             "main_advantage",
             "advantage",
             "municipality_size",
