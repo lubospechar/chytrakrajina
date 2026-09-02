@@ -292,12 +292,18 @@ class SDG(models.Model):
     )
 
     sdg_number = models.PositiveSmallIntegerField()
-    # TODO: sdg_name czech a english
     sdg_name_cs = models.CharField(max_length=100)
+    sdg_name_en = models.CharField(max_length=100, null=True, blank=True)
     icon = models.ImageField(null=True, blank=True, upload_to="sdg_icons")
 
+    @property
+    def sdg_name(self):
+        if get_language() == "en":
+            return self.sdg_name_en
+        return self.sdg_name_cs
+
     def __str__(self):
-        return self.sdg_name
+        return self.sdg_name_cs
 
     class Meta:
         verbose_name = _("Sustainable Development Goal")
