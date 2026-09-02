@@ -7,6 +7,7 @@ from catalogue.models import (
     Limitation,
     AdvatageCategory,
     Advantage,
+    SDG,
 )
 
 
@@ -52,6 +53,10 @@ class LimitationSerializer(serializers.ModelSerializer):
             "last_modified",
         )
 
+class SDGSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SDG
+        fields = ("uuid", "sdg_number", "sdg_name", "icon")
 
 class UUIDNameRelatedSerializer(serializers.Serializer):
     """
@@ -123,7 +128,7 @@ class MeasureSerializer(serializers.ModelSerializer):
     limitation = UUIDNameRelatedSerializer(many=True, read_only=True)
     funding_opportunity = UUIDNameRelatedSerializer(many=True, read_only=True)
     combine = MeasureCombineSerializer(many=True, read_only=True)
-    sdg = UUIDNameRelatedSerializer(many=True, read_only=True)
+    sdg = SDGSerializer(many=True, read_only=True)
     law = UUIDNameRelatedSerializer(many=True, read_only=True)
     complexity_of_realization_display = serializers.CharField(
         source="get_complexity_of_realization_display", read_only=True

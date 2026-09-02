@@ -7,6 +7,7 @@ from catalogue.api.views import (
     LimitationViewSet,
     AdvantageCategoryViewSet,
     AdvantageViewSet,
+    SDGViewSet,
 )
 
 router = DefaultRouter()
@@ -17,5 +18,6 @@ router.register("advantages", AdvantageViewSet, basename="advantage")
 router.register(
     "advantage-categories", AdvantageCategoryViewSet, basename="advantage-category"
 )
+router.register("sdgs", SDGViewSet, basename="sdg")
 router.register("measures", MeasureViewSet, basename="measure")
 urlpatterns = router.urls

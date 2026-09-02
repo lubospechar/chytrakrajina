@@ -7,7 +7,7 @@ from catalogue.models import (
     LocationType,
     Limitation,
     AdvatageCategory,
-    Advantage,
+    Advantage, SDG,
 )
 from catalogue.api.serializers import (
     MeasureGroupSerializer,
@@ -15,7 +15,7 @@ from catalogue.api.serializers import (
     LocationTypeSerializer,
     LimitationSerializer,
     AdvantageCategorySerializer,
-    AdvantageSerializer,
+    AdvantageSerializer, SDGSerializer,
 )
 
 
@@ -126,6 +126,26 @@ class AdvantageViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = AdvantageSerializer
     lookup_field = "uuid"
     pagination_class = None
+
+    def initial(self, request, *args, **kwargs):
+        super().initial(request, *args, **kwargs)
+
+        language_code = getattr(
+            request,
+            "LANGUAGE_CODE",
+        )
+        activate(language_code)
+
+
+class SDGViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    Public read-only API for Sustainable Development Goals (SDG).
+    """
+
+    queryset = SDG.objects.all().order_by("sdg_number")
+    serializer_class = SDGSerializer
+    lookup_field = "uuid"
+    pagination_class = None  # Cílů SDG je fixní počet (17), stránkování obvykle není nutné
 
     def initial(self, request, *args, **kwargs):
         super().initial(request, *args, **kwargs)
