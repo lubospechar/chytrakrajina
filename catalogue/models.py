@@ -99,7 +99,7 @@ class MeasureGroup(models.Model):
         return self.measures.count()
 
     def __str__(self):
-        return self.name()
+        return self.name_cs
 
     def save(self, *args, **kwargs):
         self.slug_cs = self.slug_cs or None
