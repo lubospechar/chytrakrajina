@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from django.utils.translation import get_language, activate
+from django.utils.translation import activate
 
 from catalogue.models import (
     MeasureGroup,
@@ -7,7 +7,8 @@ from catalogue.models import (
     LocationType,
     Limitation,
     AdvatageCategory,
-    Advantage, SDG,
+    Advantage,
+    SDG,
 )
 from catalogue.api.serializers import (
     MeasureGroupSerializer,
@@ -15,143 +16,77 @@ from catalogue.api.serializers import (
     LocationTypeSerializer,
     LimitationSerializer,
     AdvantageCategorySerializer,
-    AdvantageSerializer, SDGSerializer,
+    AdvantageSerializer,
+    SDGSerializer,
 )
 
 
-class MeasureGroupViewSet(viewsets.ReadOnlyModelViewSet):
+class BaseLocalizedReadOnlyModelViewSet(viewsets.ReadOnlyModelViewSet):
+    lookup_field = "uuid"
+
+    def initial(self, request, *args, **kwargs):
+        super().initial(request, *args, **kwargs)
+        language_code = getattr(request, "LANGUAGE_CODE", "cs")
+        if language_code:
+            activate(language_code)
+
+
+class MeasureGroupViewSet(BaseLocalizedReadOnlyModelViewSet):
     """
     Public read-only API for Measure groups.
     """
-
     queryset = MeasureGroup.objects.all()
     serializer_class = MeasureGroupSerializer
-    lookup_field = "uuid"
-
-    def initial(self, request, *args, **kwargs):
-        super().initial(request, *args, **kwargs)
-
-        language_code = getattr(
-            request,
-            "LANGUAGE_CODE",
-        )
-        activate(language_code)
 
 
-class MeasureViewSet(viewsets.ReadOnlyModelViewSet):
+class MeasureViewSet(BaseLocalizedReadOnlyModelViewSet):
     """
     Public read-only API for Measures.
     """
-
     queryset = Measure.objects.all()
     serializer_class = MeasureSerializer
-    lookup_field = "uuid"
-
-    def initial(self, request, *args, **kwargs):
-        super().initial(request, *args, **kwargs)
-
-        language_code = getattr(
-            request,
-            "LANGUAGE_CODE",
-        )
-        activate(language_code)
 
 
-class LocationTypeViewSet(viewsets.ReadOnlyModelViewSet):
+class LocationTypeViewSet(BaseLocalizedReadOnlyModelViewSet):
     """
     Public read-only API for Location types.
     """
-
     queryset = LocationType.objects.all()
     serializer_class = LocationTypeSerializer
-    lookup_field = "uuid"
     pagination_class = None
 
-    def initial(self, request, *args, **kwargs):
-        super().initial(request, *args, **kwargs)
 
-        language_code = getattr(
-            request,
-            "LANGUAGE_CODE",
-        )
-        activate(language_code)
-
-
-class LimitationViewSet(viewsets.ReadOnlyModelViewSet):
+class LimitationViewSet(BaseLocalizedReadOnlyModelViewSet):
     """
     Public read-only API for Limitations.
     """
-
     queryset = Limitation.objects.all()
     serializer_class = LimitationSerializer
-    lookup_field = "uuid"
     pagination_class = None
 
-    def initial(self, request, *args, **kwargs):
-        super().initial(request, *args, **kwargs)
 
-        language_code = getattr(
-            request,
-            "LANGUAGE_CODE",
-        )
-        activate(language_code)
-
-
-class AdvantageCategoryViewSet(viewsets.ReadOnlyModelViewSet):
+class AdvantageCategoryViewSet(BaseLocalizedReadOnlyModelViewSet):
     """
     Public read-only API for Advantage categories.
     """
-
     queryset = AdvatageCategory.objects.all()
     serializer_class = AdvantageCategorySerializer
-    lookup_field = "uuid"
     pagination_class = None
 
-    def initial(self, request, *args, **kwargs):
-        super().initial(request, *args, **kwargs)
 
-        language_code = getattr(
-            request,
-            "LANGUAGE_CODE",
-        )
-        activate(language_code)
-
-
-class AdvantageViewSet(viewsets.ReadOnlyModelViewSet):
+class AdvantageViewSet(BaseLocalizedReadOnlyModelViewSet):
     """
     Public read-only API for Advantages.
     """
-
     queryset = Advantage.objects.select_related("advantage_category").all()
     serializer_class = AdvantageSerializer
-    lookup_field = "uuid"
     pagination_class = None
 
-    def initial(self, request, *args, **kwargs):
-        super().initial(request, *args, **kwargs)
 
-        language_code = getattr(
-            request,
-            "LANGUAGE_CODE",
-        )
-        activate(language_code)
-
-
-class SDGViewSet(viewsets.ReadOnlyModelViewSet):
+class SDGViewSet(BaseLocalizedReadOnlyModelViewSet):
     """
     Public read-only API for Sustainable Development Goals (SDG).
     """
-
     queryset = SDG.objects.all().order_by("sdg_number")
     serializer_class = SDGSerializer
-    lookup_field = "uuid"
-    pagination_class = None  # Cílů SDG je fixní počet (17), stránkování obvykle není nutné
-
-    def initial(self, request, *args, **kwargs):
-        super().initial(request, *args, **kwargs)
-
-        language_code = getattr(
-            request,
-            "LANGUAGE_CODE",
-        )
-        activate(language_code)
+    pagination_class = None
